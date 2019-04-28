@@ -18,7 +18,13 @@ As specified by the Assignment 2 manual, we must build a program in the followin
 ### UML Diagram
 
 ### Class Descriptions
-
+__rshell__
+__base__
+__connectors__
+__userCommands__
+__semicolon__
+__and__
+__or__
 ### Prototypes/Research
 
 ### Roadmaps/Issues
