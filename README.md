@@ -38,14 +38,26 @@ __semicolon__
 
 The semicolon class inherits from the connectors class, and is represented in our program by the ';' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a semicolon will be executed, assuming it exists.
 
-__and__
+__ampersand__
 
 The and class inherits from the connectors class, and is represented in our program by the '&&' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a and call(&&) will be excuted if and only if the left operand(left base pointer) succeeded.
 
-__or__
+__pipe__
 
 The or class inherits from the connectors class, and is represented in our program by the '||' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a or call(||) will be excuted if and only if the left operand(left base pointer) failed.
 
 ### Prototypes/Research
+__fork()__
+
+Fork 
+__execvp()__
+
+__waitpid()__
+
+__Primary websites used for Research:__
+*
+*
+*
+*
 
 ### Roadmaps/Issues
