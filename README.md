@@ -28,17 +28,23 @@ The base class establishes a composite pattern for our program as it contains a 
 
 __connectors__
 
-Functionally the connectors class is the class which the semicolon, or, and and classes are derived from(in our program these classes would be ';', '||' and '&&', respectively.) We have two base pointers, which represent the two operands in each operation. You may link together the constuction of the connector classes in order to compile multiple lines of code at once (i.e. command1 || command2 && command3). This class extends to the base class.
+Functionally the connectors class is the class which the semicolon, or, and and classes are derived from(in our program these classes would be ';', '||' and '&&', respectively.) We have two base pointers, which represent the two operands in each operation. You may link together the constuction of the connector classes in order to compile multiple lines of code at once (i.e. command1 || command2 && command3). This class extends to the base class. Furthermore, the connectors class has a virtual void evaluate() function which all its derived classes(semicolon,and,or) inherit and implement functionality to.
 
 __userCommands__
 
-This is where all user commands waiting to be compiled are stored. These commands are stored in a vector and have set instructions to execute a program(s). We have two base pointers, representing the two operands in each operation stored in the vector. This class extends to base class.
+This is where all user commands waiting to be compiled are stored. These commands are stored in a vector and have set instructions to execute a program(s). We have two base pointers, representing the two operands in each operation stored in the vector. This class extends to base class. In the userCommands class, we define a evaluate function which evaluates each user command, interpretting their functionality.
 
 __semicolon__
 
+The semicolon class inherits from the connectors class, and is represented in our program by the ';' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a semicolon will be executed, assuming it exists.
+
 __and__
 
+The and class inherits from the connectors class, and is represented in our program by the '&&' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a and call(&&) will be excuted if and only if the left operand(left base pointer) succeeded.
+
 __or__
+
+The or class inherits from the connectors class, and is represented in our program by the '||' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a or call(||) will be excuted if and only if the left operand(left base pointer) failed.
 
 ### Prototypes/Research
 
