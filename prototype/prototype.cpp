@@ -1,6 +1,8 @@
 #include <stdio.h> 
 #include <sys/types.h> 
-#include <unistd.h> 
+#include <unistd.h>
+#include<sys/wait.h> 
+
 using namespace std;
 
    argv[0] = "eat";
