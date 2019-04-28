@@ -17,6 +17,8 @@ As specified by the Assignment 2 manual, we must build a program in the followin
 
 ### UML Diagram
 
+![alt text](https://github.com/cs100/spring-2019-assignment-doesn-t-matter/blob/master/images/DIAGRAM.png)
+
 ### Class Descriptions
 __rshell__
 
