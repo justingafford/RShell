@@ -72,3 +72,25 @@ __Primary websites used for Research:__
 * [waitpid()](https://stackoverflow.com/questions/21248840/example-of-waitpid-in-use) - used to understand waitpid() command.
 
 ### Roadmaps/Issues
+
+List of classes and tests we will complete (ordered):
+
+1. Base Class
+
+2. RShell Class
+⋅⋅⋅test output
+
+3. Connectors Class
+⋅⋅⋅test evaluate()
+
+4. UserCommands Class
+⋅⋅⋅test evaluate()
+
+5. Semicolon Class
+⋅⋅⋅test evalute()
+
+6. Ampersand Class
+⋅⋅⋅test evaluate()
+
+7. Pipe Class
+⋅⋅⋅test evaluate()
