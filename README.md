@@ -24,9 +24,15 @@ rshell acts as the main user interface class. In this class, the user is prompte
 
 __base__
 
+This b
+
 __connectors__
 
+Functionally the connectors class is the class which the semicolon, or, and and classes are derived from(in our program these classes would be ';', '||' and '&&', respectively.) We have two base pointers, which represent the two operands in each operation. You may link together the constuction of the connector classes in order to compile multiple lines of code at once (i.e. command1 || command2 && command3).
+
 __userCommands__
+
+This is where all user commands waiting to be compiled are stored. These commands are stored in a vector and have set instructions to execute a program(s).
 
 __semicolon__
 
