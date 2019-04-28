@@ -5,12 +5,12 @@ Justin Gafford jgaff001@ucr
 
 Wayland Chang wchan051@ucr.edu
 
-###Introduction
+### Introduction
 
-###UML Diagram
+### UML Diagram
 
-###Class Descriptions
+### Class Descriptions
 
-###Prototypes/Research
+### Prototypes/Research
 
-###Roadmaps/Issues
+### Roadmaps/Issues
