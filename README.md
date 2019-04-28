@@ -28,7 +28,7 @@ The base class establishes a composite pattern for our program as it contains a 
 
 __connectors__
 
-Functionally the connectors class is the class which the semicolon, or, and and classes are derived from(in our program these classes would be ';', '||' and '&&', respectively.) We have two base pointers, which represent the two operands in each operation. You may link together the constuction of the connector classes in order to compile multiple lines of code at once (i.e. command1 || command2 && command3). This class extends to the base class. Furthermore, the connectors class has a virtual void evaluate() function which all its derived classes(semicolon,and,or) inherit and implement functionality to.
+Functionally the connectors class is the class which the semicolon, pipe, and ampersand classes are derived from(in our program these classes would be ';', '||' and '&&', respectively.) We have two base pointers, which represent the two operands in each operation. You may link together the constuction of the connector classes in order to compile multiple lines of code at once (i.e. command1 || command2 && command3). This class extends to the base class. Furthermore, the connectors class has a virtual void evaluate() function which all its derived classes(semicolon,ampersand,pipe) inherit and implement functionality to.
 
 __userCommands__
 
@@ -40,11 +40,11 @@ The semicolon class inherits from the connectors class, and is represented in ou
 
 __ampersand__
 
-The and class inherits from the connectors class, and is represented in our program by the '&&' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a and call(&&) will be excuted if and only if the left operand(left base pointer) succeeded.
+The ampersand class inherits from the connectors class, and is represented in our program by the '&&' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a ampersand call(&&) will be executed if and only if the left operand(left base pointer) succeeded.
 
 __pipe__
 
-The or class inherits from the connectors class, and is represented in our program by the '||' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a or call(||) will be excuted if and only if the left operand(left base pointer) failed.
+The pipe class inherits from the connectors class, and is represented in our program by the '||' symbol. This allows multiple commands to be executed at once using its evaluate function, as the right operand(right base pointer) of a pipe call(||) will be executed if and only if the left operand(left base pointer) failed.
 
 ### Prototypes/Research
 __fork()__
