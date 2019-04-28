@@ -79,24 +79,24 @@ List of classes and tests we will complete (ordered):
 
 2. RShell Class
 
-⋅⋅⋅test output
+...test output
 
 3. Connectors Class
 
-⋅⋅⋅test evaluate()
+...test evaluate()
 
 4. UserCommands Class
 
-⋅⋅⋅test evaluate()
+...test evaluate()
 
 5. Semicolon Class
 
-⋅⋅⋅test evalute()
+...test evalute()
 
 6. Ampersand Class
 
-⋅⋅⋅test evaluate()
+...test evaluate()
 
 7. Pipe Class
 
-⋅⋅⋅test evaluate()
+...test evaluate()
