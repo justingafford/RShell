@@ -49,9 +49,15 @@ The pipe class inherits from the connectors class, and is represented in our pro
 ### Prototypes/Research
 __fork()__
 
+fork() specifies how many times to compile a command. Specifically fork increases output times by a rate of 2^n. So if you input fork() three times, and output "Hello World", the string "Hello World" will output eight times. This is useful because we can call fork() multiple times to execute the evaluate function in a "recursive-esque" fashion in order to evaluate all the commands in a multi-command user input(i.e. command1 || command2 && command3 ; command4).
+
 __execvp()__
 
+execvp() enables us to read in commands such as 'ls -la' or 'git' by passing a file we wish to execute and a string which defines what input is required to execute that file. This is extremely integral to our program as it allows us to specify the instructions which while compile when the user inputs them, enabling our rshell to function. 
+
 __waitpid()__
+
+waitpid() waits for proccesses to finish, and thus, we can use it to allow our program to compile multiple commands at once. By setting pid to a specific value, we can tell our program to wait until its compiled all of the commands passed through by the use of connectors before allowing any more user input.
 
 __Primary websites used for Research:__
 
