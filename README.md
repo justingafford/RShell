@@ -57,7 +57,7 @@ __Primary websites used for Research:__
 
 * [Prototype](http://www.cs.ecu.edu/karl/4630/sum01/example1.html) - used to help build prototype.
 
-* [fork()](https://www.geeksforgeeks.org/difference-fork-exec/) - used to understand fork() command.
+* [fork()](https://www.geeksforgeeks.org/fork-system-call/) - used to understand fork() command.
 
 * [execvp()](https://stackoverflow.com/questions/27541910/how-to-use-execvp) - used to understand execvp() command.
 
