@@ -20,6 +20,8 @@ As specified by the Assignment 2 manual, we must build a program in the followin
 ### Class Descriptions
 __rshell__
 
+rshell acts as the main user interface class. In this class, the user is prompted for an input. After the input is recieved, we pass in this command and then finally, execute it.
+
 __base__
 
 __connectors__
