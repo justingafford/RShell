@@ -49,15 +49,18 @@ The pipe class inherits from the connectors class, and is represented in our pro
 ### Prototypes/Research
 __fork()__
 
-Fork 
 __execvp()__
 
 __waitpid()__
 
 __Primary websites used for Research:__
-*
-*
-*
-*
+
+* [Prototype](http://www.cs.ecu.edu/karl/4630/sum01/example1.html) - used to help build prototype.
+
+* [fork()](https://www.geeksforgeeks.org/difference-fork-exec/) - used to understand fork() command.
+
+* [execvp()](https://stackoverflow.com/questions/27541910/how-to-use-execvp) - used to understand execvp() command.
+
+* [waitpid()](https://stackoverflow.com/questions/21248840/example-of-waitpid-in-use) - used to understand waitpid() command.
 
 ### Roadmaps/Issues
