@@ -1,7 +1,7 @@
 # CS 100 Programming Project
 Spring 2019,
 
-Justin Gafford jgaff001@ucr
+Justin Gafford 862052819 jgaff001@ucr
 
 Wayland Chang 862010512 wchan051@ucr.edu 
 
