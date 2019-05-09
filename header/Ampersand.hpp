@@ -4,10 +4,10 @@
 using namespace std;
 
 class Ampersand:: public Connectors {
- public:
+ private:
   Base* lhs;
   Base* rhs;
- private:
+ public:
   Ampersand() {
    lhs = 0;
    rhs = 0;
