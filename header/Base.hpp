@@ -3,14 +3,14 @@
 using namespace std;
 
 class Base {
- public:
+ protected:
   Base* lhs;
   Base* rhs;
+ public:
   Base() {
     lhs = 0;
     rhs = 0;
   };
- private:
   virtual void evaluate() = 0;
 };
 #endif
