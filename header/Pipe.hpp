@@ -4,7 +4,7 @@
 using namespace std;
 
 class Pipe:: public Connectors {
- protected:
+ private:
   Base* lhs;
   Base* rhs;
  public:
