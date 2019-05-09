@@ -4,10 +4,10 @@
 using namespace std;
 
 class Pipe:: public Connectors {
- public:
+ protected:
   Base* lhs;
   Base* rhs;
- private:
+ public:
   Pipe() {
    lhs = 0;
    rhs = 0;
