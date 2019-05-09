@@ -5,12 +5,11 @@
 #include <queue> //use a queue to hold usercommands
 using namespace std;
 
-class UserCommands:: public Base {
+class UserCommands: public Base {
  private:
   queue<Base*> userCommands;
  public:
   UserCommands () {
-    userCommands = 0;
   };
   //call the destructor whenever we finish user commands(i.e. they press enter, and it compiles)
   ~UserCommands () {

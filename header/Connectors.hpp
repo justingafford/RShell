@@ -3,7 +3,7 @@
 #include "Base.hpp"
 using namespace std;
 
-class Connectors: class Base {
+class Connectors: public Base {
  protected:
   Base* lhs;
   Base* rhs;

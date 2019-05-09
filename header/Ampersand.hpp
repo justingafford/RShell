@@ -3,7 +3,7 @@
 #include "Connectors.hpp"
 using namespace std;
 
-class Ampersand:: public Connectors {
+class Ampersand : public Connectors {
  private:
   Base* lhs;
   Base* rhs;

@@ -3,7 +3,7 @@
 #include "Connectors.hpp"
 using namespace std;
 
-class Semicolon:: public Connectors {
+class Semicolon : public Connectors {
  private:
   Base* lhs;
   Base* rhs;

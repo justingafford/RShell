@@ -3,7 +3,7 @@
 #include "Connectors.hpp"
 using namespace std;
 
-class Pipe:: public Connectors {
+class Pipe : public Connectors {
  private:
   Base* lhs;
   Base* rhs;
