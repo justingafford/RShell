@@ -16,4 +16,5 @@ class Pipe:: public Connectors {
   void evaluate();
   
 };
+
 #endif
