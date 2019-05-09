@@ -4,10 +4,10 @@
 using namespace std;
 
 class Semicolon:: public Connectors {
- public:
+ private:
   Base* lhs;
   Base* rhs;
- private:
+ public:
   Semicolon () { 
     lhs = 0;
     rhs = 0;
