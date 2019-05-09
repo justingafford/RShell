@@ -1,6 +1,5 @@
 #ifndef BASE_HPP
-#define AMPERSAND_HPP
-#include "Connectors.hpp"
+#define BASE_HPP
 using namespace std;
 
 class Base {
