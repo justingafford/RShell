@@ -4,7 +4,7 @@
 using namespace std;
 
 class RShell {
-  private:
+  public:
    //sting userCommand;
    void printDollarSign() {
      //infinite loop running program
