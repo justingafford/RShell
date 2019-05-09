@@ -8,6 +8,11 @@ class Pipe:: public Connectors {
   Base* lhs;
   Base* rhs;
  private:
+  Pipe() {
+   lhs = 0;
+   rhs = 0;
+  };
+  Pipe(Base* left, Base* right);
   void evaluate();
   
 };
