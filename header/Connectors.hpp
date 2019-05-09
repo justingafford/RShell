@@ -4,10 +4,10 @@
 using namespace std;
 
 class Connectors: class Base {
- public:
+ protected:
   Base* lhs;
   Base* rhs;
- private:
+ public:
   void evaluate();
   
 };
