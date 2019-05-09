@@ -8,6 +8,11 @@ class Ampersand:: public Connectors {
   Base* lhs;
   Base* rhs;
  private:
+  Ampersand() {
+   lhs = 0;
+   rhs = 0;
+  };
+  Ampersand(Base* left, Base* right);
   void evaluate();
   
 };
