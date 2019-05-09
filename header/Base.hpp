@@ -12,6 +12,5 @@ class Base {
   };
  private:
   virtual void evaluate() = 0;
-  
 };
 #endif
