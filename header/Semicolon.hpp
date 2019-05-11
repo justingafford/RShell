@@ -14,7 +14,7 @@ class Semicolon : public Connectors {
     rhs = 0;
   };
   Semicolon(UserCommands* left,UserCommands* right);
-  bool evaluate();
+  void evaluate();
   
 };
 #endif

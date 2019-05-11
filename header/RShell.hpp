@@ -6,7 +6,7 @@
 #include "Connectors.hpp"
 #include "Ampersand.hpp"
 #include "Pipe.hpp"
-#include "Semicolon"
+#include "Semicolon.hpp"
 using namespace std;
 
 class RShell {
@@ -18,7 +18,7 @@ class RShell {
    void printDollarSign() {
        cout << "$";
    };
-   void getInput();
+   void setInput();
    void parse();
    void program();
    void addInput(Base*);
