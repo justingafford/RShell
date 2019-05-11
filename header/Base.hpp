@@ -12,6 +12,7 @@ class Base {
     rhs = 0;
   };
   virtual void evaluate() = 0;
+  virtual string returnType () { return "";}
  
 };
 #endif
