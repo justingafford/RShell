@@ -6,8 +6,8 @@ using namespace std;
 
 class Ampersand : public Connectors {
  private:
-  UserCommands* lhs;
-  UserCommands* rhs;
+   UserCommands* lhs;
+   UserCommands* rhs;
  public:
   Ampersand() {
    lhs = 0;
