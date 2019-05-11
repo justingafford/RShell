@@ -15,8 +15,9 @@ class UserCommands: public Base {
    command = "";
    execute = true;
   };
-  void setCommand(string comm) {
+  UserCommands (string comm) {
    command = comm;
+   execute = true;
   };
   
   void evaluate();
