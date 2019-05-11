@@ -15,6 +15,5 @@ class Pound : public Connectors {
   };
   Pound(UserCommands* left, UserCommands* right);
   void evaluate();
-  
 };
 #endif
