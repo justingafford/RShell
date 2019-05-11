@@ -11,14 +11,14 @@ using namespace std;
 
 class RShell {
   private:
-    string userInput;
+    string input;
     vector<Base*> input;
   public:
    //sting userCommand;
    void printDollarSign() {
        cout << "$";
    };
-   void getInput();
+   void setInput();
    void parse();
    void program();
    void addInput(Base*);
