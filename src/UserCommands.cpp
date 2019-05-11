@@ -3,18 +3,18 @@
 
 using namespace std;
 
-void evaluate() {
+void UserCommands::evaluate() {
   
 }
 
-void DoNotExecute() {
+void UserCommands::DoNotExecute() {
   execute = false;
 }
 
-void DoExecute() {
+void UserCommands::DoExecute() {
   execute = true;
 }
 
-bool ExecuteStatus() {
+bool UserCommands::ExecuteStatus() {
   return execute;
 }
