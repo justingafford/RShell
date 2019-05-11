@@ -1,18 +1,19 @@
 #ifndef AMPERSAND_HPP
 #define AMPERSAND_HPP
 #include "Connectors.hpp"
+#include "UserCommands.hpp"
 using namespace std;
 
 class Ampersand : public Connectors {
  private:
-  Base* lhs;
-  Base* rhs;
+  UserCommands* lhs;
+  UserCommands* rhs;
  public:
   Ampersand() {
    lhs = 0;
    rhs = 0;
   };
-  Ampersand(Base* left, Base* right);
+  Ampersand(UserCommands* left, UserCommands* right);
   void evaluate();
   
 };
