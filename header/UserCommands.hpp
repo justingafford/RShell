@@ -2,24 +2,24 @@
 #define USERCOMMANDS_HPP
 #include "Base.hpp"
 #include <iostream>
-#include <queue> //use a queue to hold usercommands
+#include <vector> //use a queue to hold usercommands
+#include <string>
 using namespace std;
 
 class UserCommands: public Base {
  private:
-  queue<Base*> userCommands;
+  string command; //represents the user command i.e. echo,etc.
+  bool execute; //does the command execute?
  public:
   UserCommands () {
   };
-  //call the destructor whenever we finish user commands(i.e. they press enter, and it compiles)
-  ~UserCommands () {
-    queue<Base*> empty;
-    userCommands = empty;
+  void setCommand(string comm) {
+   command = comm;
   };
-  UserCommands(Base* comm) {
-    userCommands.push(comm);
-  };
-  void evaluate();
   
+  void evaluate();
+  void DidNotExecute();
+  void DidExecute();
+  bool ExecuteStatus();
 };
 #endif
