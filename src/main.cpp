@@ -15,17 +15,17 @@ int main () {
   RShell xd;
   
   while(commandLine != "exit") {
-    xd->printDollarSign();
+    xd.printDollarSign();
     getline(cin, commandLine); //we use getline so that once you hit enter(i.e. \n) you stop writing to commandLine.
-    if(commandLine == exit) {
+    if(commandLine == "exit") {
       break;
     }
     else {
-      rshell.setInput(commandLine);
-      rshell.parse();
-      rshell.execute();
-      rshell.clear();
+      xd.setInput(commandLine);
+      xd.parse();
+      xd.program();
+      xd.reset();
     }
+
   }
-  
-    
+}    
