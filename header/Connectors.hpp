@@ -8,7 +8,7 @@ class Connectors: public Base {
   Base* lhs;
   Base* rhs;
  public:
-  void evaluate();
+  virtual void evaluate() = 0;
   
 };
 #endif
