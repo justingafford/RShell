@@ -17,10 +17,6 @@ void RShell::parse() {
 
 }
 
-void RShell::addInput(Base*) {
-
-}
-
 void RShell::reset() {
 
 }
