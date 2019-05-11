@@ -5,14 +5,14 @@ using namespace std;
 
 class Pound : public Connectors {
  private:
-  Base* lhs;
-  Base* rhs;
+  UserCommands* lhs;
+  UserCommands* rhs;
  public:
   Pound() {
    lhs = 0;
    rhs = 0;
   };
-  Pound(Base* left, Base* right);
+  Pound(UserCommands* left, UserCommands* right);
   void evaluate();
   
 };
