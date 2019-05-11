@@ -12,14 +12,17 @@ class UserCommands: public Base {
   bool execute; //does the command execute?
  public:
   UserCommands () {
+   command = "";
+   execute = true;
   };
-  void setCommand(string comm) {
+  UserCommands (string comm) {
    command = comm;
+   execute = true;
   };
   
   void evaluate();
-  void DidNotExecute();
-  void DidExecute();
+  void DoNotExecute();
+  void DoExecute();
   bool ExecuteStatus();
 };
 #endif

@@ -11,7 +11,7 @@ using namespace std;
 
 class RShell {
   private:
-    string userInput;
+    string input;
     vector<Base*> input;
   public:
    //sting userCommand;
