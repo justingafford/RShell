@@ -18,5 +18,5 @@ void RShell::parse() {
 }
 
 void RShell::reset() {
-
+	input.clear();
 }
