@@ -12,6 +12,8 @@ class UserCommands: public Base {
   bool execute; //does the command execute?
  public:
   UserCommands () {
+   command = ""
+   execute = true;
   };
   void setCommand(string comm) {
    command = comm;
