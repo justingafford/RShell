@@ -6,8 +6,8 @@ using namespace std;
 
 class Semicolon : public Connectors {
  private:
-  UserCommands* lhs;
-  UserCommands* rhs;
+   UserCommands* lhs;
+   UserCommands* rhs;
  public:
   Semicolon () { 
     lhs = 0;
