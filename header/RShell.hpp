@@ -11,10 +11,13 @@ using namespace std;
 
 class RShell {
   private:
+<<<<<<< HEAD
     string terminalCommand;
+=======
+    string terminalLine;
+>>>>>>> a78a393043d8d865f43f4b993245d2c9a36dd704
     vector<Base*> input;
   public:
-   //sting userCommand;
    void printDollarSign() {
        cout << "$";
    };
