@@ -18,8 +18,8 @@ class UserCommands: public Base {
   };
   
   void evaluate();
-  void DidNotExecute();
-  void DidExecute();
+  void DoNotExecute();
+  void DoExecute();
   bool ExecuteStatus();
 };
 #endif
