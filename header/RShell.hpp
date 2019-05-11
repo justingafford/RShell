@@ -7,14 +7,8 @@ class RShell {
   public:
    //sting userCommand;
    void printDollarSign() {
-     //infinite loop running program
-     //while(1) {
        cout << "$";
-       //cin >> userCommand;
-       //perform neccessary 
-       //cout << endl;
-     //}
    };
-  
+   void program();
 };
 #endif
