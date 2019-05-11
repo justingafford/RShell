@@ -12,7 +12,7 @@ using namespace std;
 class RShell {
   private:
     string terminalCommand;
-    vector<string> input;
+    vector<Base*> input;
   public:
    void printDollarSign() {
        cout << "$";
