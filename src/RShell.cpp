@@ -89,7 +89,7 @@ void RShell::parse () {
 			
         	else if (parsed.size() != 0) {
 	    		UserCommands* comm = new UserCommands();
-			comm = parsed[i];
+			comm = parsed.at(i);
 	    		input.push_back(comm);
         	}
 	}
