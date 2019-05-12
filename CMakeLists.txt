@@ -1,3 +1,10 @@
+$(CC) $(CFLAGS) -c ../src/main.cpp
+$(CC) $(CFLAGS) -c ../src/Ampersand.cpp
+$(CC) $(CFLAGS) -c ../src/Pipe.cpp
+$(CC) $(CFLAGS) -c ../src/RShell.cpp
+$(CC) $(CFLAGS) -c ../src/Semicolon.cpp
+$(CC) $(CFLAGS) -c ../src/UserCommands.cpp
+
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
  
 ADD_SUBDIRECTORY(googletest)
