@@ -2,7 +2,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-
+#include <sstream>
+#include <fstream>
+#include <unistd.h> 
+#include <stdio.h> 
+#include <sys/wait.h>
 using namespace std;
 
 void RShell::parse () {
