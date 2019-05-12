@@ -67,6 +67,7 @@ void RShell::parse () {
             		if(i > 0 && i < parsed.size()) {
 	        		Ampersand* amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
 				input.push_back(amp);
+			}
 	        	else if (i > 1 && i == parsed.size()) {
 		     		Ampersand* amp = new Ampersand(parsed.at(i-1),"");
 				input.push_back(amp);
@@ -84,7 +85,8 @@ void RShell::parse () {
         	}
 			
         	else if (parsed.size() != 0) {
-	    		UserCommands* comm = new UserCommands[parsed.at(i)];
+	    		UserCommands* comm = new UserCommands();
+			comm = parsed[i];
 	    		input.push_back(comm);
         	}
 	}
