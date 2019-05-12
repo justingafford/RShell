@@ -13,9 +13,9 @@ using namespace std;
 TEST(UserCommandsTest, ExecuteTest) {
     UserCommands* test = new UserCommands();
     test->DoNotExecute();
-    ASSERT_EQ(test->execute,false);
+    ASSERT_EQ(test->ExecuteStatus(),false);
     test->DoExecute();
-    ASSERT_EQ(test->execute,true);
+    ASSERT_EQ(test->ExecuteStatus(),true);
     
 }
 
@@ -24,8 +24,8 @@ TEST(ConnectorsTests, Semicolon) {
     UserCommands* right = new UserCommands(echo world);
     Semicolon* semi = new Semicolon(left,right);
     semi->evaluate();
-    ASSERT_EQ(left->execute,true);
-    ASSERT_EQ(right->execute,true);
+    ASSERT_EQ(left->ExecuteStatus(),true);
+    ASSERT_EQ(right->ExecuteStatus(),true);
     
 }
 
@@ -36,8 +36,8 @@ TEST(ConnectorsTests, Pipe) {
     left->DoNotExecute();
     right->DoNotExecute();
     pip->evaluate();
-    ASSERT_EQ(left->execute,false);
-    ASSERT_EQ(right->execute,true);
+    ASSERT_EQ(left->ExecuteStatus(),false);
+    ASSERT_EQ(right->ExecuteStatus(),true);
 }
 
 TEST(ConnectorsTests, Ampersand) {
@@ -47,8 +47,8 @@ TEST(ConnectorsTests, Ampersand) {
     left->DoNotExecute();
     right->DoExecute();
     pip->evaluate();
-    ASSERT_EQ(left->execute,false);
-    ASSERT_EQ(right->execute,false);
+    ASSERT_EQ(left->ExecuteStatus(),false);
+    ASSERT_EQ(right->ExecuteStatus(),false);
 }
 
 TEST(RShellTests, ExitTest) {
