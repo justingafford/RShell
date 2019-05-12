@@ -9,9 +9,9 @@ Ampersand::Ampersand(UserCommands* left, UserCommands* right) {
  }
 void Ampersand::evaluate() {
    if (!lhs->ExecuteStatus()) {
-     rhs->DoExecute();
+     rhs->DoNotExecute();
    }
    else {
-     rhs->DoNotExecute();
+     rhs->DoExecute();
    }
 }
