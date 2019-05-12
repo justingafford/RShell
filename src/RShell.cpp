@@ -72,7 +72,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 //part 3
     if(saved != -1) {
         ofstream ofs;	
-        ofs.open(“comments.txt”);
+        ofs.open("comments.txt");
         if(ofs.is_open()) {
             for(unsigned j = parsed[save]; j < parsed.size();j++) {
 	
