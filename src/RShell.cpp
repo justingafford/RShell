@@ -12,7 +12,7 @@ using namespace std;
 void RShell::parse () {
     stringstream ss;
     //parse part 1(put commands into vector of strings)
-    for(unsigned i = 0; i < terminalCommand.size();  i++) {
+    for(unsigned i = 0; i < terminalCommand.size() - 1;  i++) {
     
     	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '/n' ) {
 	    ss << terminalCommand.at(i); 
