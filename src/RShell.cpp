@@ -31,7 +31,7 @@ unsigned save = -1;
 for (unsigned i = 0; i < parsed.size(); i++) {
     if(parsed.at(i)->returnCommand() == ";") {
         if(i > 0 && i < parsed.size()) {
-	    Semicolon semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
+	    Semicolon* semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
 	    else if (i > 1 && i == parsed.size()) {
 		Semicolon* semi = new Semicolon(parsed.at(i-1),"");
 	    }
@@ -53,7 +53,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
         }
         else if (parsed.at(i)->returnCommand() == "&&") {
             if(i > 0 && i < parsed.size()) {
-	        Ampersand amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
+	        Ampersand* amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
 	        else if (i > 1 && i == parsed.size()) {
 		     Ampersand* amp = new Ampersand(parsed.at(i-1),"");
 	        }
