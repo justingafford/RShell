@@ -16,8 +16,7 @@ class Ampersand : public Connectors {
   Ampersand(UserCommands* left, UserCommands* right);
   bool ExecuteStatus() {return true;}
   char ** argument() {
-      char * placeholder[1];
-      return placeholder;
+      return deezArgs;
   }
   string returnCommand() {}
   void DoExecute() {}
