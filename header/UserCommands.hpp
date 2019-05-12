@@ -30,5 +30,6 @@ class UserCommands: public Base {
   void DoNotExecute();
   void DoExecute();
   bool ExecuteStatus();
+  char** getArgument();
 };
 #endif
