@@ -14,6 +14,14 @@ class Ampersand : public Connectors {
    rhs = 0;
   };
   Ampersand(UserCommands* left, UserCommands* right);
+  bool ExecuteStatus() {return true;}
+  char ** argument() {
+      char ** placeholder[0];
+      return placeholder;
+  }
+  string returnCommand() {}
+  void DoExecute() {}
+  void DoNotExecute() {}
   void evaluate();
   
 };
