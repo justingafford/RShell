@@ -10,6 +10,7 @@ ADD_EXECUTABLE(RShell
     RShell.cpp
     Semicolon.cpp
     UserCommands.cpp
+    main.cpp
 )
  
 ADD_EXECUTABLE(test
