@@ -155,6 +155,7 @@ void RShell::setInput(string input) {
 void RShell::program() {
     for (unsigned i = 0; i < inputs.size(); i++) {
         if (inputs.at(i)->returnCommand() == "exit") {
+	    exited = true;
             exit(1);
         }
 	if(inputs.at(i)->returnCommand() == “;” || inputs.at(i)->returnCommand() == “&&” || inputs.at(i)->returnCommand() == "&&")
