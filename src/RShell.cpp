@@ -183,4 +183,5 @@ void RShell::program() {
 
 void RShell::reset() {
 	input.clear();
+	parsed.clear();
 }
