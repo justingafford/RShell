@@ -10,7 +10,7 @@ class UserCommands: public Base {
  private:
   string command; //represents the user command i.e. echo,etc.
   bool execute; //does the command execute?
-  char* argument[256];
+  char* deezArgs[1024];
  public:
   UserCommands () {
    command = "";
@@ -25,6 +25,9 @@ class UserCommands: public Base {
   };
   string returnCommand() {
     return command;
+  };
+  char ** argument() {
+    return deezArgs;
   };
   void evaluate();
   void DoNotExecute();
