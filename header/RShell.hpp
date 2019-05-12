@@ -15,11 +15,23 @@ class RShell {
     vector<UserCommands*> parsed;
     vector<Base*> input;
     string currFunction;
+    bool createdComment = false;
     bool exited = false;
   public:
    void printDollarSign() {
        cout << "$";
    };
+  
+   vector<Base*> accessInput () {
+     vector<Base*> temp = input;
+     return temp;
+   };
+  
+  vector<UserCommands*> accessParsed () {
+     vector<UserCommands*> temp = parsed;
+     return temp;
+   };
+      
    bool returnExited() {
         return exited;
    };
