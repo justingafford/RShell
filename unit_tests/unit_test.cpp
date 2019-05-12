@@ -93,7 +93,7 @@ TEST(RShellTests, CommentedCommandTest) {
     test.parse();
     test.program();
     ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo test");
-    ASSERT_EQ(test.createdComment,true);
+    ASSERT_EQ(test.commentCreated(),true);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
