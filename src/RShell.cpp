@@ -82,7 +82,7 @@ void RShell::parse () {
 	        	
         	}
 			
-        	else if (parsed.at(i)->returnCommand() = = "#") {
+        	else if (parsed.at(i)->returnCommand() == "#") {
 	    		save = i;
 	    		break;
         	}
