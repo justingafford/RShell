@@ -43,10 +43,10 @@ TEST(ConnectorsTests, Pipe) {
 TEST(ConnectorsTests, Ampersand) {
     UserCommands* left = new UserCommands();
     UserCommands* right = new UserCommands();
-    Pipe* pip = new Pipe(left,right);
+    Ampersand* amp = new Ampersand(left,right);
     left->DoNotExecute();
     right->DoExecute();
-    pip->evaluate();
+    amp->evaluate();
     ASSERT_EQ(left->ExecuteStatus(),false);
     ASSERT_EQ(right->ExecuteStatus(),false);
 }
