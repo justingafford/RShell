@@ -140,7 +140,8 @@ void RShell::parse () {
 	        //write parsed[j] to comment section;
                 ofs << parsed.at(j);
             }
-            ofs.close();	
+            ofs.close();
+  	    createdComment = true;
         }
         else {
             cout << "Error creating comment section" << endl;
