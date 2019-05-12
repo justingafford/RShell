@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void RShell::program () {
+void RShell::parse () {
     stringstream ss;
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
@@ -88,7 +88,7 @@ void RShell::setInput(string input) {
 	terminalLine = input;
 }
 
-void RShell::parse() {
+void RShell::program() {
 
 }
 
