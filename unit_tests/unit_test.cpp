@@ -5,7 +5,7 @@
 #include "../header/RShell.hpp"
 #include "../header/Semicolon.hpp"
 #include "../header/UserCommands.hpp"
-#include #include "gtest/gtest.h"
+#include "gtest/gtest.h"
 #include <iostream>
 
 using namespace std;
