@@ -20,6 +20,9 @@ class RShell {
    void printDollarSign() {
        cout << "$";
    };
+   bool returnExcited() {
+        return exited;
+   };
    void setInput(string);
    void parse();
    void program();
