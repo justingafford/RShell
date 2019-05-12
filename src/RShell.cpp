@@ -170,14 +170,14 @@ void RShell::program() {
 		else if (pid == 0) {
 		    if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1)
 		        perror("Command Error.");
-		    }
 		    exit(0);
-	        }
+		}
 	        else {
 	            while(wait(0) != pid);
                     input.at(i)->DoExecute();
 	        }    
             }
+	}
     }  
 }
 
