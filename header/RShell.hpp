@@ -15,10 +15,14 @@ class RShell {
     vector<UserCommands*> parsed;
     vector<Base*> input;
     string currFunction;
+    bool exited = false;
   public:
    void printDollarSign() {
        cout << "$";
    };
+   bool didExit() {
+       return exited;
+   }; 
    void setInput(string);
    void parse();
    void program();
