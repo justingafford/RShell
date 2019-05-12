@@ -13,11 +13,11 @@ class Base {
     lhs = 0;
     rhs = 0;
   };
-  virtual bool ExecuteStatus();
-  virtual char ** argument();
-  virtual string returnCommand();
-  virtual void DoExecute();
-  virtual void DoNotExecute();
+  virtual bool ExecuteStatus() = 0;
+  virtual char ** argument() = 0;
+  virtual string returnCommand() = 0;
+  virtual void DoExecute() = 0;
+  virtual void DoNotExecute() = 0;
   virtual void evaluate() = 0;
 
  
