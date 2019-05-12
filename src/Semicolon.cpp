@@ -8,10 +8,6 @@ Semicolon::Semicolon(UserCommands* left, UserCommands* right) {
    rhs = right;
  }
 void Semicolon::evaluate() {
-   if (!lhs->ExecuteStatus()) {
-     rhs->DoExecute();
-   }
-   else {
-     rhs->DoNotExecute();
-   }
+   lhs->DoExecute();
+   rhs->DoExecute();
 }
