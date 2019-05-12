@@ -43,15 +43,12 @@ void RShell::parse () {
 					UserCommands* cmd = new UserCommands();
 					Semicolon* semi = new Semicolon(parsed.at(i-1),cmd);
 					input.push_back(semi);
-					
-				}
 			}
 			else if(parsed.at(0)->returnCommand = ";" && !zeroset) {
 				UserCommands* cmd = new UserCommands();
 				Semicolon* semi= new Semicolon(cmd,parsed.at(1));
 				input.push_back(semi);
 				zeroset = true;
-		
 			}
     		}
 		
