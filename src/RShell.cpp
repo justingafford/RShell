@@ -30,56 +30,65 @@ void RShell::parse () {
 	//parse part 2(this populates input vector by allocating new variables of type UserCommands
 	// and Connectors
 	unsigned save = -1;
-	for (unsigned i = 0; i < parsed.size(); i++) {
+	bool zeroset = false;
+	if (parsed.size() > 1) {
+	for (unsigned i = 1; i < parsed.size() - 1; i++) {
 		
     		if(parsed.at(i)->returnCommand() == ";") {
-        		if(i > 0 && i < parsed.size()) {
+        		if(i < parsed.size() && zeroset) {
 	    			Semicolon* semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
 				input.push_back(semi);
 			}
-			else if (i > 1 && i == parsed.size()) {
-				UserCommands* cmd = new UserCommands();
-				Semicolon* semi = new Semicolon(parsed.at(i-1),cmd);
-				input.push_back(semi);
+			else if (i > 1 && i == parsed.size() && zeroset) {
+					UserCommands* cmd = new UserCommands();
+					Semicolon* semi = new Semicolon(parsed.at(i-1),cmd);
+					input.push_back(semi);
+					
+				}
 			}
-			else if (parsed.size() ==1) {
-   				Semicolon* semi = new Semicolon();
+			else if(parsed.at(0)->returnCommand = ";" && !zeroset) {
+				Semicolon* semi= new Semicolon(cmd,parsed.at(1));
 				input.push_back(semi);
+				zeroset = true;
+		
 			}
     		}
 		
 		else if(parsed.at(i)->returnCommand() == "||") {
-        		if(i > 0 && i < parsed.size()) {
+        		if(i < parsed.size() && zeroset) {
 	    			Pipe* pip = new Pipe(parsed.at(i-1),parsed.at(i+1));
 				input.push_back(pip);
 			}
-	    		else if (i > 1 && i == parsed.size()) {
+	    		else if (i > 1 && i == parsed.size() && zeroset) {
 				UserCommands* cmd = new UserCommands();
 		    		Pipe* pip= new Pipe(parsed.at(i-1),cmd);
 				input.push_back(pip);
 	    		}
-	    		else if (parsed.size() ==1) {
-   				Pipe* pip= new Pipe();
+	    		else if(parsed.at(0)->returnCommand = "&&" && !zeroset) {
+				Pipe* pip= new Pipe(cmd,parsed.at(1));
 				input.push_back(pip);
-	    		}
+				zeroset = true;
+				
+			}
 	    
         	}
 		
         	else if (parsed.at(i)->returnCommand() == "&&") {
-            		if(i > 0 && i < parsed.size()) {
+            		if(i < parsed.size() && zeroset) {
 	        		Ampersand* amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
 				input.push_back(amp);
 			}
-	        	else if (i > 1 && i == parsed.size()) {
+	        	else if (i > 1 && i == parsed.size() && zeroset) {
 				UserCommands* cmd = new UserCommands();
 		     		Ampersand* amp = new Ampersand(parsed.at(i-1),cmd);
 				input.push_back(amp);
 	        	}
-	        	else if (parsed.size() ==1) {
-   		     		Ampersand* amp = new Ampersand();
-				input.push_back(amp);
-	        	}
 	        	
+	        	else if(parsed.at(0)->returnCommand = "&&" && !zeroset) {
+				Pipe* amp= new Ampersand(cmd,parsed.at(1));
+				input.push_back(amp);
+				zeroset = true;
+			}
         	}
 			
         	else if (parsed.at(i)->returnCommand() == "#") {
@@ -87,11 +96,40 @@ void RShell::parse () {
 	    		break;
         	}
 			
-        	else if (parsed.size() != 0) {
+        	else {
 	    		UserCommands* comm = new UserCommands();
 			comm = parsed.at(i);
 	    		input.push_back(comm);
+			if(!zeroset) {
+				comm = parsed.at(i);
+	    			input.push_back(comm);
+				zeroset = true;
+			}
         	}
+	}
+	}
+	else if(parsed.size() == 1) {
+		if (parsed.at(i)->returnCommand() == "#") {
+	    		save = i;
+	    		break;
+        	}
+		else if (parsed.at(0)->returnCommand = ";") {
+			Semicolon* semi= new Semicolon();
+			input.push_back(semi);
+		}
+		else if(parsed.at(0)->returnCommand = "||") {
+			Pipe* pip= new Pipe();
+			input.push_back(pip);
+		}
+		else if (parsed.at(0)->returnCommand = "&&") {
+			Ampersand* amp= new Ampersand();
+			input.push_back(amp);
+		}
+		else {
+	    		UserCommands* comm = new UserCommands();
+			comm = parsed.at(i);
+	    		input.push_back(comm);
+		}
 	}
 	//part 3
     	if(save != -1) {
