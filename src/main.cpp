@@ -1,10 +1,10 @@
-#include "Ampersand.hpp"
-#include "Base.hpp"
-#include "Connectors.hpp"
-#include "Pipe.hpp"
-#include "RShell.hpp"
-#include "Semicolon.hpp"
-#include "UserCommands.hpp"
+#include "../header/Ampersand.hpp"
+#include "../header/Base.hpp"
+#include "../header/Connectors.hpp"
+#include "../header/Pipe.hpp"
+#include "../header/RShell.hpp"
+#include "../header/Semicolon.hpp"
+#include "../header/UserCommands.hpp"
 #include <iostream>
 #include <unistd.h> //Linux standard library
 
