@@ -1,4 +1,4 @@
- #include "Ampersand.hpp"
+ #include "../header/Ampersand.hpp"
  #include <iostream>
  
 using namespace std;
