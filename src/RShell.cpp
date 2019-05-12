@@ -163,7 +163,7 @@ void RShell::program() {
 	else {
 	    if(input.at(i)->evaluate()) {
 		input.at(i)->DoNotExecute();
-		Pid_t pid = fork();
+		pid_t pid = fork();
 		if(pid < 0) {
 		    perror("Fork() failed.");
 		}
