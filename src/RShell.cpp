@@ -29,7 +29,7 @@ void RShell::parse () {
 // and Connectors
 unsigned save = -1;
 for (unsigned i = 0; i < parsed.size(); i++) {
-    if(parsed.at(i) == ";") {
+    if(parsed.at(i)->returnCommand() == ";") {
         if(i > 0 && i < parsed.size()) {
 	    Semicolon semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
 	    else if (i > 1 && i == parsed.size()) {
@@ -40,7 +40,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	    }
 	input.push_back(semi);
     }
-    else if(parsed.at(i) == "||") {
+    else if(parsed.at(i)->returnCommand() == "||") {
         if(i > 0 && i < parsed.size()) {
 	    Pipe* pip = new Pipe(parsed.at(i-1),parsed.at(i+1));
 	    else if (i > 1 && i == parsed.size()) {
@@ -51,7 +51,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	    }
 	    input.push_back(pip);
         }
-        else if (parsed.at(i) == "&&") {
+        else if (parsed.at(i)->returnCommand() == "&&") {
             if(i > 0 && i < parsed.size()) {
 	        Ampersand amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
 	        else if (i > 1 && i == parsed.size()) {
@@ -62,7 +62,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	        }
 	        input.push_back(amp);
         }
-        else if (parsed.at(i) = = "#") {
+        else if (parsed.at(i)->returnCommand() = = "#") {
 	    save = i;
 	    break;
         }
