@@ -23,13 +23,11 @@ class RShell {
    };
   
    vector<Base*> accessInput () {
-     vector<Base*> temp = input;
-     return temp;
+       return input;
    };
   
   vector<UserCommands*> accessParsed () {
-     vector<UserCommands*> temp = parsed;
-     return temp;
+       return parsed;
    };
       
    bool returnExited() {
