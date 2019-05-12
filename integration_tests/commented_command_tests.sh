@@ -1,3 +1,4 @@
+#!/bin/sh
 #../src/main.cpp
 echo hello #world
 echo this; echo that #echo who && echo what || echo where
