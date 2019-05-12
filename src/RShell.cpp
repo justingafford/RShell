@@ -38,7 +38,8 @@ void RShell::parse () {
 				input.push_back(semi);
 			}
 			else if (i > 1 && i == parsed.size()) {
-				Semicolon* semi = new Semicolon(parsed.at(i-1),"");
+				UserCommands* cmd = new UserCommands();
+				Semicolon* semi = new Semicolon(parsed.at(i-1),cmd);
 				input.push_back(semi);
 			}
 			else if (parsed.size() ==1) {
@@ -53,7 +54,8 @@ void RShell::parse () {
 				input.push_back(pip);
 			}
 	    		else if (i > 1 && i == parsed.size()) {
-		    		Pipe* pip= new Pipe(parsed.at(i-1),"");
+				UserCommands* cmd = new UserCommands();
+		    		Pipe* pip= new Pipe(parsed.at(i-1),cmd);
 				input.push_back(pip);
 	    		}
 	    		else if (parsed.size() ==1) {
@@ -69,7 +71,8 @@ void RShell::parse () {
 				input.push_back(amp);
 			}
 	        	else if (i > 1 && i == parsed.size()) {
-		     		Ampersand* amp = new Ampersand(parsed.at(i-1),"");
+				UserCommands* cmd = new UserCommands();
+		     		Ampersand* amp = new Ampersand(parsed.at(i-1),cmd);
 				input.push_back(amp);
 	        	}
 	        	else if (parsed.size() ==1) {
