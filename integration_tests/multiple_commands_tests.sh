@@ -1,3 +1,4 @@
+#!/bin/sh
 ls -a; echo hello && mkdir test || echo world; git status
 ls -a || ls
 ls -a && ls
