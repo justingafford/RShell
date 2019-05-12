@@ -10,7 +10,7 @@ class UserCommands: public Base {
  private:
   string command; //represents the user command i.e. echo,etc.
   bool execute; //does the command execute?
-  char** argument[256];
+  char* argument[256];
  public:
   UserCommands () {
    command = "";
