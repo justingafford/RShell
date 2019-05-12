@@ -20,8 +20,8 @@ TEST(UserCommandsTest, ExecuteTest) {
 }
 
 TEST(ConnectorsTests, Semicolon) {
-    UserCommands* left = new UserCommands(echo hello);
-    UserCommands* right = new UserCommands(echo world);
+    UserCommands* left = new UserCommands("echo hello");
+    UserCommands* right = new UserCommands("echo world");
     Semicolon* semi = new Semicolon(left,right);
     semi->evaluate();
     ASSERT_EQ(left->ExecuteStatus(),true);
