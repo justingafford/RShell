@@ -19,7 +19,9 @@ class UserCommands: public Base {
    command = comm;
    execute = true;
   };
-  
+  void setCommand(string c) {
+    command = c;
+  };
   void evaluate();
   void DoNotExecute();
   void DoExecute();
