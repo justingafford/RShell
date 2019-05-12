@@ -14,7 +14,7 @@ class Pipe : public Connectors {
    rhs = 0;
   };
   Pipe(UserCommands* left, UserCommands* right);
-  void evaluate() {}
+  void evaluate();
   bool ExecuteStatus() {return true;}
   char ** argument() {
       return deezArgs;
