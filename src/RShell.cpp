@@ -14,14 +14,14 @@ void RShell::parse () {
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
     
-    while(terminalCommand.at(i) != ";" || terminalCommand.at(i) !="&"  || terminalCommand.at(i)!="|" || terminalCommand.at(i)!="#" || terminalCommand.at(i) = "/n" ) {
+    while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) = '/n' ) {
 	ss << terminalCommand.at(i); 
 	ss >> currFunction; 
 	i++;
     }
-    if(terminalCommand.at(i) != "\n") {
+    if(terminalCommand.at(i) != '\n') {
 	UserCommands* temp = new UserCommands;
-	temp->command() = currFunction;
+	temp->setCommand(currFunction);
     	parsed.push_back(temp);
    }
 }
@@ -76,7 +76,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
         ofstream ofs;	
         ofs.open("comments.txt");
         if(ofs.is_open()) {
-            for(unsigned j = parsed.at(save); j < parsed.size();j++) {
+            for(unsigned j = save; j < parsed.size();j++) {
 	
                 //write parsed[j] to comment section;
                 ofs << parsed.at(j);
@@ -91,7 +91,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 }
 
 void RShell::setInput(string input) {
-	terminalLine = input;
+	terminalCommand = input;
 }
 
 void RShell::program() {
