@@ -13,10 +13,10 @@ class Base {
     rhs = 0;
   };
   virtual string returnCommand();
-  virtual bool DoExecute();
-  virtual bool DoNotExecute();
+  virtual void DoExecute();
+  virtual void DoNotExecute();
   virtual void evaluate() = 0;
-  virtual bool evaluate();
+
  
 };
 #endif
