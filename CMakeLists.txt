@@ -19,7 +19,7 @@ ADD_EXECUTABLE(test
     src/RShell.cpp
     src/Semicolon.cpp
     src/UserCommands.cpp
-    src/unit_test.cpp
+    unit_test/unit_test.cpp
 )
  
 TARGET_LINK_LIBRARIES(test gtest)
