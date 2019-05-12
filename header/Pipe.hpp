@@ -14,7 +14,15 @@ class Pipe : public Connectors {
    rhs = 0;
   };
   Pipe(UserCommands* left, UserCommands* right);
-  void evaluate();
+  void evaluate() {}
+  bool ExecuteStatus() {return true;}
+  char ** argument() {
+      char ** placeholder[0];
+      return placeholder;
+  }
+  string returnCommand() {}
+  void DoExecute() {}
+  void DoNotExecute() {}
   
 };
 #endif
