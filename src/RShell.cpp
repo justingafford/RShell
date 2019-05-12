@@ -153,29 +153,29 @@ void RShell::setInput(string input) {
 }
 
 void RShell::program() {
-    for (unsigned i = 0; i < inputs.size(); i++) {
-        if (inputs.at(i)->returnCommand() == "exit") {
+    for (unsigned i = 0; i < input.size(); i++) {
+        if (input.at(i)->returnCommand() == "exit") {
 	    exited = true;
             exit(1);
         }
-	if(inputs.at(i)->returnCommand() == ";" || inputs.at(i)->returnCommand() == "&&" || inputs.at(i)->returnCommand() == "&&")
-	    inputs.at(i)->evaluate();
+	if(input.at(i)->returnCommand() == ";" || input.at(i)->returnCommand() == "&&" || input.at(i)->returnCommand() == "&&")
+	    input.at(i)->evaluate();
 	else {
-	    if(inputs.at(i)->evaluate()) {
-		inputs.at(i)->DoNotExecute();
+	    if(input.at(i)->evaluate()) {
+		input.at(i)->DoNotExecute();
 		Pid_t pid = fork();
 		if(pid < 0) {
 		    perror("Fork() failed.");
 		}
 		else if (pid == 0) {
-		if(execvp((input.at(i)->argument()[0]),inputs.at(i)->argument()) == -1)
+		if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1)
 		    perror("Command Error.");
 		}
 		exit(0);
 	     }
 	     else {
 	         while(wait(0) != pid);
-                 inputs.at(i)->DoExecute();
+                 input.at(i)->DoExecute();
 	     }    
 	}
     }
