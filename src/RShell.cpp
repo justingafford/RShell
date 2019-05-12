@@ -44,7 +44,7 @@ void RShell::parse () {
 					Semicolon* semi = new Semicolon(parsed.at(i-1),cmd);
 					input.push_back(semi);
 			}
-			else if(parsed.at(0)->returnCommand = ";" && !zeroset) {
+			else if(parsed.at(0)->returnCommand == ";" && !zeroset) {
 				UserCommands* cmd = new UserCommands();
 				Semicolon* semi= new Semicolon(cmd,parsed.at(1));
 				input.push_back(semi);
@@ -62,7 +62,7 @@ void RShell::parse () {
 		    		Pipe* pip= new Pipe(parsed.at(i-1),cmd);
 				input.push_back(pip);
 	    		}
-	    		else if(parsed.at(0)->returnCommand = "&&" && !zeroset) {
+	    		else if(parsed.at(0)->returnCommand == "&&" && !zeroset) {
 				UserCommands* cmd = new UserCommands();
 				Pipe* pip= new Pipe(cmd,parsed.at(1));
 				input.push_back(pip);
@@ -83,7 +83,7 @@ void RShell::parse () {
 				input.push_back(amp);
 	        	}
 	        	
-	        	else if(parsed.at(0)->returnCommand = "&&" && !zeroset) {
+	        	else if(parsed.at(0)->returnCommand == "&&" && !zeroset) {
 				UserCommands* cmd = new UserCommands();
 				Ampersand* amp= new Ampersand(cmd,parsed.at(1));
 				input.push_back(amp);
@@ -113,15 +113,15 @@ void RShell::parse () {
 	    		save = i;
 	    		break;
         	}
-		else if (parsed.at(0)->returnCommand = ";") {
+		else if (parsed.at(0)->returnCommand == ";") {
 			Semicolon* semi= new Semicolon();
 			input.push_back(semi);
 		}
-		else if(parsed.at(0)->returnCommand = "||") {
+		else if(parsed.at(0)->returnCommand == "||") {
 			Pipe* pip= new Pipe();
 			input.push_back(pip);
 		}
-		else if (parsed.at(0)->returnCommand = "&&") {
+		else if (parsed.at(0)->returnCommand == "&&") {
 			Ampersand* amp= new Ampersand();
 			input.push_back(amp);
 		}
