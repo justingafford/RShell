@@ -1,17 +1,17 @@
 main:
-$(CC) $(CFLAGS) -c ../src/main.cpp
+    $(CC) $(CFLAGS) -c ../src/main.cpp
 unit_test:
-$(CC) $(CFLAGS) -c ../unit_tests/unit_test.cpp
+    $(CC) $(CFLAGS) -c ../unit_tests/unit_test.cpp
 ampersand:
-$(CC) $(CFLAGS) -c ../src/Ampersand.cpp
+    $(CC) $(CFLAGS) -c ../src/Ampersand.cpp
 pipe:
-$(CC) $(CFLAGS) -c ../src/Pipe.cpp
+    $(CC) $(CFLAGS) -c ../src/Pipe.cpp
 rshell:
-$(CC) $(CFLAGS) -c ../src/RShell.cpp
+    $(CC) $(CFLAGS) -c ../src/RShell.cpp
 semicolon:
-$(CC) $(CFLAGS) -c ../src/Semicolon.cpp
+    $(CC) $(CFLAGS) -c ../src/Semicolon.cpp
 usercommands:
-$(CC) $(CFLAGS) -c ../src/UserCommands.cpp
+    $(CC) $(CFLAGS) -c ../src/UserCommands.cpp
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
  
