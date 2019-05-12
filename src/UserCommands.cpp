@@ -18,7 +18,3 @@ void UserCommands::DoExecute() {
 bool UserCommands::ExecuteStatus() {
   return execute;
 }
-
-char** UserCommands::getArgument() {
-  return argument;
-}
