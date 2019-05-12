@@ -11,7 +11,7 @@ class Connectors: public Base {
   void evaluate() {}
   bool ExecuteStatus() {return true;}
   char ** argument() {
-      char ** placeholder[0];
+      char * placeholder[0];
       return placeholder;
   }
   string returnCommand() {}
