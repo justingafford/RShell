@@ -18,25 +18,30 @@ class RShell {
     bool createdComment = false;
     bool exited = false;
   public:
-   void printDollarSign() {
-       cout << "$";
-   };
+    void printDollarSign() {
+        cout << "$";
+    };
   
-   vector<Base*> accessInput () {
-       return input;
-   };
+    vector<Base*> accessInput () {
+        return input;
+    };
   
-  vector<UserCommands*> accessParsed () {
-       return parsed;
-   };
+    bool commentCreated () {
+        return createdComment;
+    };
+  
+    vector<UserCommands*> accessParsed () {
+        return parsed;
+    };
       
-   bool returnExited() {
+    bool returnExited() {
         return exited;
-   };
-   void setInput(string);
-   void parse();
-   void program();
-   void reset();
+    };
+  
+    void setInput(string);
+    void parse();
+    void program();
+    void reset();
   
 };
 #endif
