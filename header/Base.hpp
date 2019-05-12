@@ -6,7 +6,7 @@ class Base {
  protected:
   Base* lhs;
   Base* rhs;
-  char* argument[256]
+  char* argument[256];
  public:
   Base() {
     lhs = 0;
