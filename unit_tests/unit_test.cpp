@@ -7,6 +7,7 @@
 #include "../header/UserCommands.hpp"
 #include "gtest/gtest.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
