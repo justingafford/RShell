@@ -15,8 +15,7 @@ TEST(UserCommandsTest, ExecuteTest) {
     test->DoNotExecute();
     ASSERT_EQ(test->ExecuteStatus(),false);
     test->DoExecute();
-    ASSERT_EQ(test->ExecuteStatus(),true);
-    
+    ASSERT_EQ(test->ExecuteStatus(),true);    
 }
 
 TEST(ConnectorsTests, Semicolon) {
@@ -25,8 +24,7 @@ TEST(ConnectorsTests, Semicolon) {
     Semicolon* semi = new Semicolon(left,right);
     semi->evaluate();
     ASSERT_EQ(left->ExecuteStatus(),true);
-    ASSERT_EQ(right->ExecuteStatus(),true);
-    
+    ASSERT_EQ(right->ExecuteStatus(),true);  
 }
 
 TEST(ConnectorsTests, Pipe) {
@@ -52,18 +50,40 @@ TEST(ConnectorsTests, Ampersand) {
 }
 
 TEST(RShellTests, ExitTest) {
+    RShell test;
+    string command = "exit";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
+    ASSERT_EQ(test.returnExited(),true);
 }
 
 TEST(RShellTests, SingleCommandTest) {
-    
+    RShell test;
+    string command = "echo hello";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
 }
 
 TEST(RShellTests, MultipleCommandTest) {
-    
+    RShell test;
+    string command = "echo hello && echo world";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
 }
 
 TEST(RShellTests, CommentedCommandTest) {
-    
+    RShell test;
+    string command = "echo test #&& this is a test";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
 }
 
 int main(int argc, char **argv) {
