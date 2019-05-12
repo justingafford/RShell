@@ -7,7 +7,7 @@ class Base {
  protected:
   Base* lhs;
   Base* rhs;
-  char* argument[256];
+  char* deezArgs[1024];
  public:
   Base() {
     lhs = 0;
