@@ -8,15 +8,12 @@ class Connectors: public Base {
   Base* lhs;
   Base* rhs;
  public:
-  void evaluate() {}
-  bool ExecuteStatus() {return true;}
-  char ** argument() {
-      char * placeholder[0];
-      return placeholder;
-  }
-  string returnCommand() {}
-  void DoExecute() {}
-  void DoNotExecute() {}
+  virtual bool ExecuteStatus();
+  virtual char ** argument();
+  virtual string returnCommand();
+  virtual void DoExecute();
+  virtual void DoNotExecute();
+  virtual void evaluate() = 0;
   
 };
 #endif
