@@ -14,7 +14,7 @@ int main () {
   string commandLine;
   RShell xd;
   
-  while(xd.exited()) {
+  while(!xd.exited()) {
     xd.printDollarSign();
     getline(cin, commandLine); //we use getline so that once you hit enter(i.e. \n) you stop writing to commandLine.
     if(commandLine == "exit") {
