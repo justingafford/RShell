@@ -7,7 +7,7 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(RShell
     src/Ampersand.cpp
     src/Pipe.cpp
-    src/Rshell.cpp
+    src/RShell.cpp
     src/Semicolon.cpp
     src/UserCommands.cpp
     src/main.cpp
