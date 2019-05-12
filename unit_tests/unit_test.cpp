@@ -66,6 +66,7 @@ TEST(RShellTests, SingleCommandTest) {
     test.parse();
     test.program();
     test.reset();
+    //ASSERT_EQ(parsed.at(0),echo hello);
 }
 
 TEST(RShellTests, MultipleCommandTest) {
@@ -75,6 +76,8 @@ TEST(RShellTests, MultipleCommandTest) {
     test.parse();
     test.program();
     test.reset();
+    //ASSERT_EQ(parsed.at(0),echo hello);
+    //ASSERT_EQ(parsed.at(1),echo world);
 }
 
 TEST(RShellTests, CommentedCommandTest) {
@@ -84,6 +87,8 @@ TEST(RShellTests, CommentedCommandTest) {
     test.parse();
     test.program();
     test.reset();
+    //ASSERT_EQ(parsed.at(0),echo test);
+    //ASSERT_EQ(createdComment,true);
 }
 
 int main(int argc, char **argv) {
