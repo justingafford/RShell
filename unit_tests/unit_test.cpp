@@ -65,10 +65,10 @@ TEST(RShellTests, SingleCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    //ASSERT_EQ(accessParsed.at(0)->returnCommand(),"echo hello");
+    ASSERT_EQ(accessParsed.at(0)->returnCommand(),"echo hello");
     test.reset();
-    //ASSERT_EQ(accessParsed.empty(),true);
-    //ASSERT_EQ(accessInput.empty(),true);
+    ASSERT_EQ(accessParsed.empty(),true);
+    ASSERT_EQ(accessInput.empty(),true);
 }
 
 TEST(RShellTests, MultipleCommandTest) {
@@ -77,12 +77,12 @@ TEST(RShellTests, MultipleCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    //ASSERT_EQ(accessParsed.at(0)->returnCommand(),"echo hello");
-    //ASSERT_EQ(accessParsed.at(1)->returnCommand(),"&&");
-    //ASSERT_EQ(accessParsed.at(2)->returnCommand(),"echo world");
+    ASSERT_EQ(accessParsed.at(0)->returnCommand(),"echo hello");
+    ASSERT_EQ(accessParsed.at(1)->returnCommand(),"&&");
+    ASSERT_EQ(accessParsed.at(2)->returnCommand(),"echo world");
     test.reset();
-    //ASSERT_EQ(accessParsed.empty(),true);
-    //ASSERT_EQ(accessInput.empty(),true);
+    ASSERT_EQ(accessParsed.empty(),true);
+    ASSERT_EQ(accessInput.empty(),true);
 }
 
 TEST(RShellTests, CommentedCommandTest) {
@@ -91,11 +91,11 @@ TEST(RShellTests, CommentedCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    //ASSERT_EQ(accessParsed.at(0)->returnCommand(),echo test);
-    //ASSERT_EQ(createdComment,true);
+    ASSERT_EQ(accessParsed.at(0)->returnCommand(),echo test);
+    ASSERT_EQ(createdComment,true);
     test.reset();
-    //ASSERT_EQ(test->accessParsed.empty(),true);
-    //ASSERT_EQ(test->accessInput.empty(),true);
+    ASSERT_EQ(test->accessParsed.empty(),true);
+    ASSERT_EQ(test->accessInput.empty(),true);
 }
 
 int main(int argc, char **argv) {
