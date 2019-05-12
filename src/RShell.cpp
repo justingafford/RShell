@@ -109,9 +109,8 @@ void RShell::parse () {
 	}
 	}
 	else if(parsed.size() == 1) {
-		if (parsed.at(i)->returnCommand() == "#") {
-	    		save = i;
-	    		break;
+		if (parsed.at(0)->returnCommand() == "#") {
+	    		save = 0;
         	}
 		else if (parsed.at(0)->returnCommand == ";") {
 			Semicolon* semi= new Semicolon();
@@ -127,7 +126,7 @@ void RShell::parse () {
 		}
 		else {
 	    		UserCommands* comm = new UserCommands();
-			comm = parsed.at(i);
+			comm = parsed.at(0);
 	    		input.push_back(comm);
 		}
 	}
