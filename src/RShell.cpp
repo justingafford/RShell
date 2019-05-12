@@ -19,8 +19,10 @@ void RShell::parse () {
 	ss >> currFunction; 
 	i++;
     }
-    if(terminalCommand[i] != "\n") {
-    	parsed.push_back(currFunction);
+    if(terminalCommand.at(i) != "\n") {
+	UserCommands* temp = new UserCommands;
+	temp->command() = currFunction;
+    	parsed.push_back(temp);
    }
 }
 //parse part 2(this populates input vector by allocating new variables of type UserCommands
@@ -49,7 +51,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	    }
 	    input.push_back(pip);
         }
-        else if (parsed[i] == "&&") {
+        else if (parsed.at(i) == "&&") {
             if(i > 0 && i < parsed.size()) {
 	        Ampersand amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
 	        else if (i > 1 && i == parsed.size()) {
@@ -60,7 +62,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	        }
 	        input.push_back(amp);
         }
-        else if (parsed[i] = = "#") {
+        else if (parsed.at(i) = = "#") {
 	    save = i;
 	    break;
         }
