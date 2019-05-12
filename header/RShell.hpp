@@ -14,7 +14,7 @@ class RShell {
     string terminalCommand;
     vector<string> parsed;
     vector<Base*> input;
-    string currCommand;
+    string currFunction;
   public:
    void printDollarSign() {
        cout << "$";
