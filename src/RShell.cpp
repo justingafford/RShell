@@ -158,18 +158,18 @@ void RShell::program() {
 	    exited = true;
             exit(1);
         }
-	if(inputs.at(i)->returnCommand() == “;” || inputs.at(i)->returnCommand() == “&&” || inputs.at(i)->returnCommand() == "&&")
+	if(inputs.at(i)->returnCommand() == ";" || inputs.at(i)->returnCommand() == "&&" || inputs.at(i)->returnCommand() == "&&")
 	    inputs.at(i)->evaluate();
 	else {
 	    if(inputs.at(i)->evaluate()) {
 		inputs.at(i)->DoNotExecute();
 		Pid_t pid = fork();
 		if(pid < 0) {
-		    perror(“Fork() failed.”);
+		    perror("Fork() failed.");
 		}
 		else if (pid == 0) {
 		if(execvp((input.at(i)->argument()[0]),inputs.at(i)->argument()) == -1)
-		    perror(“Command Error.”);
+		    perror("Command Error.");
 		}
 		exit(0);
 	     }
