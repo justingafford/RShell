@@ -1,5 +1,7 @@
 main:
 $(CC) $(CFLAGS) -c ../src/main.cpp
+unit_test:
+$(CC) $(CFLAGS) -c ../unit_tests/unit_test.cpp
 ampersand:
 $(CC) $(CFLAGS) -c ../src/Ampersand.cpp
 pipe:
@@ -32,7 +34,7 @@ ADD_EXECUTABLE(test
     rshell
     semicolon
     usercommands
-    unittest
+    unit_test
 )
  
 TARGET_LINK_LIBRARIES(test gtest)
