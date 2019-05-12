@@ -9,7 +9,14 @@
 #include <iostream>
 
 using namespace std;
-
+TEST(VectorContainerTestSet, SwapTest) {
+}
+TEST(VectorContainerTestSet, SwapTest) {
+}
+TEST(VectorContainerTestSet, SwapTest) {
+}
+TEST(VectorContainerTestSet, SwapTest) {
+}
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
