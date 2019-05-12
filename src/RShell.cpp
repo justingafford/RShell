@@ -161,7 +161,7 @@ void RShell::program() {
 	if(input.at(i)->returnCommand() == ";" || input.at(i)->returnCommand() == "&&" || input.at(i)->returnCommand() == "&&")
 	    input.at(i)->evaluate();
 	else {
-	    if(input.at(i)->evaluate()) {
+	    if(input.at(i)->ExecuteStatus()) {
 		input.at(i)->DoNotExecute();
 		pid_t pid = fork();
 		if(pid < 0) {
