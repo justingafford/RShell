@@ -12,6 +12,7 @@ using namespace std;
 class RShell {
   private:
     string terminalCommand;
+    vector<string> parsed;
     vector<Base*> input;
     string currCommand;
   public:
