@@ -31,21 +31,21 @@ for (unsigned i = 0; i < parsed.size(); i++) {
         if(i > 0 && i < parsed.size()) {
 	    Semicolon semi = new Semicolon(parsed[i-1],parsed[i+1]);
 	    else if (i > 1 && i == parsed.size()) {
-		Semicolon semi = new Semicolon(parsed[i-1],"");
+		Semicolon* semi = new Semicolon(parsed[i-1],"");
 	    }
 	    else if (parsed.size() ==1) {
-   		Semicolon semi = new Semicolon();
+   		Semicolon* semi = new Semicolon();
 	    }
 	input.push_back[semi];
     }
     else if(parsed[i] == "||") {
         if(i > 0 && i < parsed.size()) {
-	    Pipe pip = new Pipe(parsed[i-1],parsed[i+1]);
+	    Pipe* pip = new Pipe(parsed[i-1],parsed[i+1]);
 	    else if (i > 1 && i == parsed.size()) {
-		    Pipe pip= new Pipe(parsed[i-1],"");
+		    Pipe* pip= new Pipe(parsed[i-1],"");
 	    }
 	    else if (parsed.size() ==1) {
-   		Pipe pip= new Pipe();
+   		Pipe* pip= new Pipe();
 	    }
 	    input.push_back[pip];
         }
@@ -53,10 +53,10 @@ for (unsigned i = 0; i < parsed.size(); i++) {
             if(i > 0 && i < parsed.size()) {
 	        Ampersand amp = new Ampersand(parsed[i-1],parsed[i+1]);
 	        else if (i > 1 && i == parsed.size()) {
-		     Ampersand amp = new Ampersand(parsed[i-1],"");
+		     Ampersand* amp = new Ampersand(parsed[i-1],"");
 	        }
 	        else if (parsed.size() ==1) {
-   		     Ampersand amp = new Ampersand();
+   		     Ampersand* amp = new Ampersand();
 	        }
 	        input.push_back[amp];
         }
@@ -65,7 +65,7 @@ for (unsigned i = 0; i < parsed.size(); i++) {
 	    break;
         }
         else if (parsed.size() != 0) {
-	    UserCommands comm = new UserCommands[parsed[i]];
+	    UserCommands* comm = new UserCommands[parsed[i]];
 	    input.push_back[comm];
         }
     }
