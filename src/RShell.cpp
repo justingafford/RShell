@@ -50,7 +50,7 @@ void RShell::parse () {
     //parse part 2(this populates input vector by allocating new variables of type UserCommands
     // and Connectors
     unsigned save = -1;
-    for (unsigned i = 0; i < parsed.size(); i++) {
+    for (unsigned i = 1; i < parsed.size() - 1; i++) {
 		if(parsed.size() > 2) {
 			if(parsed.at(i)->returnCommand() == ";") {
 	        	Semicolon* semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
