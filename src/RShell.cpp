@@ -50,18 +50,18 @@ void RShell::parse () {
     //parse part 2(this populates input vector by allocating new variables of type UserCommands
     // and Connectors
     unsigned save = -1;
-    for (unsigned i = 1; i < parsed.size() - 1; i++) {
+    for (unsigned i = 0; i < parsed.size(); i++) {
 		if(parsed.size() > 2) {
 			if(parsed.at(i)->returnCommand() == ";") {
-	        	Semicolon* semi = new Semicolon(parsed.at(i-1),parsed.at(i+1));
+	        	Semicolon* semi = new Semicolon(parsed.at(i),parsed.at(i));
 				input.push_back(semi);
 	    	}
 			else if(parsed.at(i)->returnCommand() == "||") {
-        		Pipe* pip = new Pipe(parsed.at(i-1),parsed.at(i+1));
+        		Pipe* pip = new Pipe(parsed.at(i),parsed.at(i));
 		    	input.push_back(pip);
 			}
 			else if (parsed.at(i)->returnCommand() == "&&") {
-            	Ampersand* amp = new Ampersand(parsed.at(i-1),parsed.at(i+1));
+            	Ampersand* amp = new Ampersand(parsed.at(i),parsed.at(i));
 				input.push_back(amp);
 			}
 			else if (parsed.at(i)->returnCommand() == "#") {
