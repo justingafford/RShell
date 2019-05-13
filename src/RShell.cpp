@@ -19,8 +19,23 @@ void RShell::parse () {
 	    ss >> currFunction; 
 	    i++;
     	}
-		
-    	if(terminalCommand.at(i) != '\n') {
+	
+	if(terminalCommand.at(i) == ';') {
+	    UserCommands* temp = new UserCommands;
+	    temp->setCommand(";");
+    	    parsed.push_back(temp);
+	}
+	else if(terminalCommand.at(i) == '|') {
+	    UserCommands* temp = new UserCommands;
+	    temp->setCommand("||");
+    	    parsed.push_back(temp);
+	}
+	else if(terminalCommand.at(i) == '&') {
+	    UserCommands* temp = new UserCommands;
+	    temp->setCommand("&&");
+    	    parsed.push_back(temp);
+	}
+    	else if(terminalCommand.at(i) != '\n') {
 	    UserCommands* temp = new UserCommands;
 	    temp->setCommand(currFunction);
     	    parsed.push_back(temp);
