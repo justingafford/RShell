@@ -53,15 +53,15 @@ void RShell::parse () {
     for (unsigned i = 0; i < parsed.size(); i++) {
 		if(parsed.size() > 2) {
 			if(parsed.at(i)->returnCommand() == ";") {
-	        	Semicolon* semi = new Semicolon(parsed.at(i),parsed.at(i));
+	        	Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
 				input.push_back(semi);
 	    	}
 			else if(parsed.at(i)->returnCommand() == "||") {
-        		Pipe* pip = new Pipe(parsed.at(i),parsed.at(i));
+        		Pipe* pip = new Pipe(parsed.at(i - 1),parsed.at(i + 1));
 		    	input.push_back(pip);
 			}
 			else if (parsed.at(i)->returnCommand() == "&&") {
-            	Ampersand* amp = new Ampersand(parsed.at(i),parsed.at(i));
+            	Ampersand* amp = new Ampersand(parsed.at(i - 1),parsed.at(i + 1));
 				input.push_back(amp);
 			}
 			else if (parsed.at(i)->returnCommand() == "#") {
