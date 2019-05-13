@@ -76,7 +76,7 @@ void RShell::parse () {
 	    }
 		else {
 			if(parsed.at(i)->returnCommand() == ";" || parsed.at(i)->returnCommand() == "||" || parsed.at(i)->returnCommand() == "&&") {
-				cout << "Error: connectors(';','||','&&') must have a left and right operand. << endl;
+				cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
 			}
 			else {
 				if(parsed.at(i)->returnCommand() == "#") {
