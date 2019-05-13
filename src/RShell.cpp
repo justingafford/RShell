@@ -13,18 +13,16 @@ void RShell::parse () {
     stringstream ss;
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
-    
-    	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '/n' ) {
-	    	ss << terminalCommand.at(i); 
-	    	ss >> currFunction; 
-	    	i++;
-    	}
-	
-		if(terminalCommand.at(i) == ';') {
-	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand(";");
-    	    parsed.push_back(temp);
-		}
+	 while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '/n' ) {
+	 ss << terminalCommand.at(i); 
+	 ss >> currFunction; 
+	 i++;
+    }
+    if(terminalCommand.at(i) == ';') {
+	UserCommands* temp = new UserCommands;
+	temp->setCommand(";");
+    	parsed.push_back(temp);
+    }
 		else if(terminalCommand.at(i) == '|') {
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand("||");
@@ -51,29 +49,29 @@ void RShell::parse () {
     // and Connectors
     unsigned save = -1;
     for (unsigned i = 0; i < parsed.size(); i++) {
-		if(parsed.size() > 2) {
+	if(parsed.size() > 2) {
 			if(parsed.at(i)->returnCommand() == ";") {
-	        	Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
+	        		Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
 				input.push_back(semi);
-	    	}
+	    		}
 			else if(parsed.at(i)->returnCommand() == "||") {
-        		Pipe* pip = new Pipe(parsed.at(i - 1),parsed.at(i + 1));
-		    	input.push_back(pip);
+        			Pipe* pip = new Pipe(parsed.at(i - 1),parsed.at(i + 1));
+		    		input.push_back(pip);
 			}
 			else if (parsed.at(i)->returnCommand() == "&&") {
-            	Ampersand* amp = new Ampersand(parsed.at(i - 1),parsed.at(i + 1));
+            			Ampersand* amp = new Ampersand(parsed.at(i - 1),parsed.at(i + 1));
 				input.push_back(amp);
 			}
 			else if (parsed.at(i)->returnCommand() == "#") {
-	    		save = i;
-	    		break;
-        	}
+	    			save = i;
+	    			break;
+        		}
 			else {
-	    		UserCommands* comm = new UserCommands();
+	    			UserCommands* comm = new UserCommands();
 				comm = parsed.at(i);
-	    		input.push_back(comm);
+	    			input.push_back(comm);
 			}    
-	    }
+	    	}
 		else {
 			if(parsed.at(i)->returnCommand() == ";" || parsed.at(i)->returnCommand() == "||" || parsed.at(i)->returnCommand() == "&&") {
 				cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
