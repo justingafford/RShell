@@ -31,7 +31,7 @@ void RShell::parse () {
     		parsed.push_back(temp);
 		currFunction = "";
     	}
-	cout << "6" << endl
+	cout << "6" << endl;
 	else if(terminalCommand.at(i) == '|') {
 		cout << "7" << endl;
 	    	UserCommands* temp = new UserCommands;
