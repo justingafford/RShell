@@ -20,7 +20,7 @@ void RShell::parse () {
 			ss << terminalCommand.at(i);
 	 		ss >> currFunction;
 			i++;
-			if (i == (terminalCommand.size() - 1)) {
+			if (i == (terminalCommand.size())) {
 	 			break;
 			}
 		}
