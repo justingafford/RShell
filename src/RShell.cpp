@@ -15,6 +15,7 @@ void RShell::parse () {
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
 	cout << "1" << endl;
 	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
+		cout << "while" << endl;
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
 	 		ss >> currFunction;
