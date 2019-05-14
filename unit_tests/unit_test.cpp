@@ -54,7 +54,7 @@ TEST(RShellTests, ExitTest) {
     RShell test;
     string command = "exit";
     test.setInput(command);
-    test.parse();
+    //test.parse();
     test.program();
     test.reset();
     ASSERT_EQ(test.returnExited(),true);
