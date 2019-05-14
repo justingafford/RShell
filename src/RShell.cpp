@@ -62,6 +62,7 @@ void RShell::parse () {
     	else if(terminalCommand.at(i) != '\n') {
 		cout << "6" << endl;
 		ss >> currFunction;
+		cout << "Function at 0: " << currFunction << endl;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand(currFunction);
     		parsed.push_back(temp);
