@@ -29,7 +29,9 @@ class RShell {
     bool commentCreated () {
         return createdComment;
     };
-  
+    string test () {
+        return terminalCommand;
+    };
     vector<UserCommands*> accessParsed () {
         return parsed;
     };
