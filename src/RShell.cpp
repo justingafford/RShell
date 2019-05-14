@@ -19,9 +19,7 @@ void RShell::parse () {
 		ss << terminalCommand.at(i);
 		cout << "3" << endl;
 	 	ss >> currFunction;
-		if(i < terminalCommand.size()) {
-	 		i++;
-		}
+	 	i++;
     	}
 	cout << "4" << endl;
     	if(terminalCommand.at(i) == ';') {
@@ -51,7 +49,7 @@ void RShell::parse () {
 	else if(terminalCommand.at(i) == '#') {
 		cout << "10" << endl;
 	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand("#");
+	   	temp->setCommand("#");
     	    	parsed.push_back(temp);
 		currFunction = "";
 	}
@@ -76,6 +74,7 @@ void RShell::parse () {
 	        	Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
 			input.push_back(semi);
 	    	}
+	
 		cout << "14" << endl;
 		else if(parsed.at(i)->returnCommand() == "||") {
 			cout << "15" << endl;
@@ -101,7 +100,7 @@ void RShell::parse () {
 			cout << "21" << endl;
 	    		input.push_back(comm);
 		}    
-	  }
+	}
 	else {
 		cout << "22" << endl;
 		if(parsed.at(i)->returnCommand() == ";" || parsed.at(i)->returnCommand() == "||" || parsed.at(i)->returnCommand() == "&&") {
@@ -113,7 +112,7 @@ void RShell::parse () {
 			if(parsed.at(i)->returnCommand() == "#") {
 				cout << "25" << endl;
 				save = i;
-				break
+				break;
 			}
 			else { //parsed.at(i) is a UserCommand
 				UserCommands* comm = new UserCommands();
@@ -124,8 +123,7 @@ void RShell::parse () {
 			}
 		}
 	}
-    }
-    
+    } 
     
 	//part 3(creates comments.txt file
     if(save != -1) {
@@ -140,14 +138,14 @@ void RShell::parse () {
             }
             ofs.close();
   	    createdComment = true;
-        }
+     	}
         else {
             cout << "Error creating comment section" << endl;
         }
     }
 }
 
-void RShell::setInput(string input) {
+RShell::setInput(string input) {
 	terminalCommand = input;
 }
 
