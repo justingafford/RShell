@@ -20,7 +20,7 @@ void RShell::parse () {
 			ss << terminalCommand.at(i);
 			cout << "Command at i" << terminalCommand.at(i) << endl;
 			i++;
-			if (i == (terminalCommand.size() - 1)) {
+			if (i == (terminalCommand.size())) {
 	 			break;
 			}
 		}
