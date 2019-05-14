@@ -22,6 +22,7 @@ int main () {
     }
     else {
       xd.setInput(commandLine);
+      xd.test();
       xd.parse();
       xd.program();
       xd.reset();
