@@ -18,8 +18,6 @@ void RShell::parse () {
 		cout << "while" << endl;
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
-			ss >> currFunction;
-			cout << "Command at i: " << currFunction << endl;
 			i++;
 			if (i == (terminalCommand.size())) {
 	 			break;
@@ -64,6 +62,7 @@ void RShell::parse () {
     	else if(terminalCommand.at(i) != '\n') {
 		cout << "6" << endl;
 		ss >> currFunction;
+		cout << "Function at 0: " << currFunction << endl;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand(currFunction);
     		parsed.push_back(temp);
