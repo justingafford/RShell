@@ -15,11 +15,11 @@ void RShell::parse () {
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
 	cout << "1" << endl;
 	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '/n' ) {
-	cout << "2" << endl;
+		cout << "2" << endl;
 		ss << terminalCommand.at(i);
 		cout << "3" << endl;
 	 	ss >> currFunction;
-		if(i < termialCommand.size() {
+		if(i < terminalCommand.size()) {
 	 		i++;
 		}
     	}
@@ -113,7 +113,7 @@ void RShell::parse () {
 			if(parsed.at(i)->returnCommand() == "#") {
 				cout << "25" << endl;
 				save = i;
-				break;
+				break
 			}
 			else { //parsed.at(i) is a UserCommand
 				UserCommands* comm = new UserCommands();
