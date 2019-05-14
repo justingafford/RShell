@@ -14,7 +14,7 @@ void RShell::parse () {
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
 	cout << "1" << endl;
-	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
+	while(terminalCommand.at(i) != ';'|| i < terminalCommand.size() || terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
 		ss << terminalCommand.at(i);
 	 	ss >> currFunction;
 	 	i++;
