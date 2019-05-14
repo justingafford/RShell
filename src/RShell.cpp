@@ -18,7 +18,8 @@ void RShell::parse () {
 		cout << "while" << endl;
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
-			cout << "Command at i" << terminalCommand.at(i) << endl;
+			ss >> currFunction;
+			cout << "Command at i: " << currFunction << endl;
 			i++;
 			if (i == (terminalCommand.size())) {
 	 			break;
