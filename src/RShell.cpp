@@ -132,7 +132,7 @@ void RShell::parse () {
     }
 }
 
-RShell::setInput(string input) {
+void RShell::setInput(string input) {
 	terminalCommand = input;
 }
 
