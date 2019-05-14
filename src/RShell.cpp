@@ -10,7 +10,7 @@
 using namespace std;
 
 void RShell::parse () {
-    stringstream ss;echo hello || dfasdfdmasdvd
+    stringstream ss;
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
 	cout << "1" << endl;
