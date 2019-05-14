@@ -20,6 +20,9 @@ void RShell::parse () {
 	 		ss >> currFunction;
 	 		i++;
 		}
+		else {
+			break;
+		}
     	}
     	if(terminalCommand.at(i) == ';') {
 		cout << "2" << endl;
