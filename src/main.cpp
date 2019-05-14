@@ -22,7 +22,6 @@ int main () {
     }
     else {
       xd.setInput(commandLine);
-      cout << xd.test() << endl;
       xd.parse();
       xd.program();
       xd.reset();
