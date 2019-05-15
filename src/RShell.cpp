@@ -17,7 +17,7 @@ void RShell::parse () {
 	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
 		cout << "while" << endl;
 		if(i < terminalCommand.size()) {
-			ss >> noskipws >>terminalCommand.at(i);
+			ss << terminalCommand.at(i);
 			i++;
 			if (i == (terminalCommand.size() - 1)) {
 	 			break;
