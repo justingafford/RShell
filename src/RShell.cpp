@@ -19,7 +19,7 @@ void RShell::parse () {
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
 			i++;
-			if (i < (terminalCommand.size())) {
+			if (i == (terminalCommand.size() -1)) {
 	 			break;
 			}
 		}
@@ -29,7 +29,6 @@ void RShell::parse () {
     	}
     	if(terminalCommand.at(i) == ';') {
 		cout << "2" << endl;
-		ss >> currFunction;
 		UserCommands* temp = new UserCommands;
 		temp->setCommand(";");
     		parsed.push_back(temp);
@@ -37,7 +36,6 @@ void RShell::parse () {
     	}
 	else if(terminalCommand.at(i) == '|') {
 		cout << "3" << endl;
-		ss >> currFunction;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand("||");
     	    	parsed.push_back(temp);
@@ -45,7 +43,6 @@ void RShell::parse () {
 	}
 	else if(terminalCommand.at(i) == '&') {
 		cout << "4" << endl;
-		ss >> currFunction;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand("&&");
     		parsed.push_back(temp);
@@ -53,7 +50,6 @@ void RShell::parse () {
 	}
 	else if(terminalCommand.at(i) == '#') {
 		cout << "5" << endl;
-		ss >> currFunction;
 	    	UserCommands* temp = new UserCommands;
 	   	temp->setCommand("#");
     	    	parsed.push_back(temp);
