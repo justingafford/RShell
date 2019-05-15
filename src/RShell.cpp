@@ -19,9 +19,7 @@ void RShell::parse () {
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
 			i++;
-			if (i == (terminalCommand.size() - 1)) {
-				ss << terminalCommand.at(terminalCommand.size() - 1);
-				i++;
+			if (i < (terminalCommand.size()) {
 	 			break;
 			}
 		}
