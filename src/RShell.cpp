@@ -66,7 +66,7 @@ void RShell::parse () {
    	}
     }
     cout << "This is the size of vector: " << parsed.size() << endl;
-    cout << "Parsed at 0: " <<  parsed.at(0) << endl;
+    cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
     //parse part 2(this populates input vector by allocating new variables of type UserCommands
     // and Connectors)
     unsigned save = -1;
