@@ -13,9 +13,9 @@ void RShell::parse () {
     ostringstream ss;
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
-	cout << "1" << endl;
+	//cout << "1" << endl;
 	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
-		cout << "while" << endl;
+		//cout << "while" << endl;
 		if(i < terminalCommand.size()) {
 			ss << terminalCommand.at(i);
 			i++;
@@ -29,94 +29,94 @@ void RShell::parse () {
 		}
     	}
     	if(terminalCommand.at(i) == ';') {
-		cout << "2" << endl;
+		//cout << "2" << endl;
 		UserCommands* temp = new UserCommands;
 		temp->setCommand(";");
     		parsed.push_back(temp);
 		currFunction = "";
     	}
 	else if(terminalCommand.at(i) == '|') {
-		cout << "3" << endl;
+		//cout << "3" << endl;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand("||");
     	    	parsed.push_back(temp);
 		currFunction = "";
 	}
 	else if(terminalCommand.at(i) == '&') {
-		cout << "4" << endl;
+		//cout << "4" << endl;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand("&&");
     		parsed.push_back(temp);
 		currFunction = "";
 	}
 	else if(terminalCommand.at(i) == '#') {
-		cout << "5" << endl;
+		//cout << "5" << endl;
 	    	UserCommands* temp = new UserCommands;
 	   	temp->setCommand("#");
     	    	parsed.push_back(temp);
 		currFunction = "";
 	}
     	else if(terminalCommand.at(i) != '\n') {
-		cout << "6" << endl;
-		cout << "Function at 0: " << currFunction << endl;
+		//cout << "6" << endl;
+		//cout << "Function at 0: " << currFunction << endl;
 	    	UserCommands* temp = new UserCommands;
 	    	temp->setCommand(ss.str());
     		parsed.push_back(temp);
 		currFunction = "";
    	}
     }
-    cout << "This is the size of vector: " << parsed.size() << endl;
-    cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
+    //cout << "This is the size of vector: " << parsed.size() << endl;
+    //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
     //parse part 2(this populates input vector by allocating new variables of type UserCommands
     // and Connectors)
     unsigned save = -1;
     for (unsigned i = 0; i < parsed.size(); i++) {
-	cout << "7" << endl;
+	//cout << "7" << endl;
 	if(parsed.size() > 2) {
 		if(parsed.at(i)->returnCommand() == ";") {
-			cout << "8" << endl;
+			//cout << "8" << endl;
 	        	Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
 			input.push_back(semi);
 	    	}
 		else if(parsed.at(i)->returnCommand() == "||") {
-			cout << "9" << endl;
+			//cout << "9" << endl;
         		Pipe* pip = new Pipe(parsed.at(i - 1),parsed.at(i + 1));
 		    	input.push_back(pip);
 		}
 		else if (parsed.at(i)->returnCommand() == "&&") {
-			cout << "10" << endl;
+			//cout << "10" << endl;
             		Ampersand* amp = new Ampersand(parsed.at(i - 1),parsed.at(i + 1));
 			input.push_back(amp);
 		}
 		else if (parsed.at(i)->returnCommand() == "#") {
-			cout << "11" << endl;
+			//cout << "11" << endl;
 	    		save = i;
 	    		break;
         	}
 		else {
 	    		UserCommands* comm = new UserCommands();
-			cout << "12" << endl;
+			//cout << "12" << endl;
 			comm = parsed.at(i);
-			cout << "13" << endl;
+			//cout << "13" << endl;
 	    		input.push_back(comm);
 		}    
 	}
 	else {
 		if(parsed.at(i)->returnCommand() == ";" || parsed.at(i)->returnCommand() == "||" || parsed.at(i)->returnCommand() == "&&") {
 			cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
-			cout << "14" << endl;
+			//cout << "14" << endl;
 		}
 		else {
 			if(parsed.at(i)->returnCommand() == "#") {
-				cout << "15" << endl;
+				//cout << "15" << endl;
 				save = i;
 				break;
 			}
 			else { //parsed.at(i) is a UserCommand
 				UserCommands* comm = new UserCommands();
-				cout << "16" << endl;
+				//cout << "16" << endl;
 				comm = parsed.at(i);
-				cout << "17" << endl;
+				//cout << "17" << endl;
 	    			input.push_back(comm);
 			}
 		}
@@ -130,9 +130,9 @@ void RShell::parse () {
         if(ofs.is_open()) {
             for(unsigned j = save; j < parsed.size();j++) {
 	        //write parsed[j] to comment section;
-		cout << "18" << endl;
+		//cout << "18" << endl;
                 ofs << parsed.at(j);
-		cout << "19" << endl;
+		//cout << "19" << endl;
             }
             ofs.close();
   	    createdComment = true;
