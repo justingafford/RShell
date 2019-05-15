@@ -10,7 +10,7 @@
 using namespace std;
 
 void RShell::parse () {
-    stringstream ss;
+    ostringstream ss;
     //parse part 1(put commands into vector of strings)
     for(unsigned i = 0; i < terminalCommand.size();  i++) {
 	cout << "1" << endl;
@@ -57,10 +57,9 @@ void RShell::parse () {
 	}
     	else if(terminalCommand.at(i) != '\n') {
 		cout << "6" << endl;
-		ss >> currFunction;
 		cout << "Function at 0: " << currFunction << endl;
 	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand(currFunction);
+	    	temp->setCommand(ss.str());
     		parsed.push_back(temp);
 		currFunction = "";
    	}
