@@ -19,7 +19,7 @@ class Pipe : public Connectors {
   char ** argument() {
       return deezArgs;
   }
-  string returnCommand() {}
+  string returnCommand() {return "||";}
   void DoExecute() {}
   void DoNotExecute() {}
   
