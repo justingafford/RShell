@@ -92,15 +92,21 @@ void RShell::parse () {
             cout << "Error creating comment section" << endl;
         }
     }
+    unsigned temp = parsed.size() + parsed2.size();
+	
+    for(unsigned m = 0; m < temp / 2; m++) {
+	input.push_back(parsed.at(m));
+	input.push_back(parsed2.at(m));
+    }
 }
 
-void RShell::setInput(string input) {
-	terminalCommand = input;
+void RShell::setInput(string inp) {
+	terminalCommand = inp;
 }
 
 void RShell::program() {
     for (unsigned i = 0; i < input.size(); i++) {
-        if (input.at(i)->returnCommand() == "exit") {
+        if ((input.at(i)->returnCommand() == "exit" || input.at(i)->returnCommand() == " exit"  || input.at(i)->returnCommand() == "exit " || input.at(i)->returnCommand() == " exit ") && input.at(i)->ExecuteStatus()) {
 	    exited = true;
             exit(1);
         }
@@ -116,8 +122,8 @@ void RShell::program() {
 		else if (pid == 0) {
 		    if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1)
 		        perror("Command Error.");
-		    exit(0);
-		}
+		    	exit(0);
+		    }
 	        else {
 	            while(wait(0) != pid);
                     input.at(i)->DoExecute();
