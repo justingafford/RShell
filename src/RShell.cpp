@@ -116,7 +116,7 @@ void RShell::program() {
 	    exited = true;
             exit(1);
         }
-	if(input.at(i)->returnCommand() == ";" || input.at(i)->returnCommand() == "&&" || input.at(i)->returnCommand() == "||")
+	else if((input.at(i)->returnCommand() == ";" || input.at(i)->returnCommand() == "&&" || input.at(i)->returnCommand() == "||") && i < parsed2.size())
 	    input.at(i)->evaluate();
 	else {
 	    if(input.at(i)->ExecuteStatus()) {
