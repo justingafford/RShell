@@ -130,13 +130,14 @@ void RShell::program() {
 		        perror("Command Error.");
 		    	exit(0);
 		    }
-	        else {
-	            while(wait(0) != pid);
-                    input.at(i)->DoExecute();
-	        }    
-            }
-	}
-    }  
+	            else {
+	            	while(wait(0) != pid);
+                    	input.at(i)->DoExecute();
+	            }    
+            	}
+	    }
+        }  
+    }
 }
 
 void RShell::reset() {
