@@ -50,11 +50,20 @@ TEST(ConnectorsTests, Ampersand) {
     ASSERT_EQ(right->ExecuteStatus(),false);
 }
 
-TEST(RShellTests, ExitTest) {
+TEST(ExitTests, BasicExit) {
     RShell test;
     string command = "exit";
     test.setInput(command);
-    //test.parse();
+    test.parse();
+    test.program();
+    test.reset();
+}
+
+TEST(RShellTests, ExitWithCommands) {
+    RShell test;
+    string command = "echo exiting && exit";
+    test.setInput(command);
+    test.parse();
     test.program();
     test.reset();
     ASSERT_EQ(test.returnExited(),true);
