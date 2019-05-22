@@ -59,11 +59,11 @@ void RShell::parse () {
 	else {
 		for (unsigned i = 0; i < terminalCommand.size(); i++) {
 		    if(terminalCommand.at(i) == ';' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == '&') {
-			cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
+			cout << "Error: connectors(';', '||' and '&&') must have a left and right operand." << endl;
 			break;
 			//cout << "14" << endl;
 		    }
-		    else if(terminalCommand.at(i) == "#") {
+		    else if(terminalCommand.at(i) == '#') {
 			//cout << "15" << endl;
 			save = i;
 			break;
