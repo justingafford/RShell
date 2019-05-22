@@ -30,26 +30,26 @@ void RShell::parse () {
     if(parsed.size() > 2) {
     	for (unsigned i = 0; i < terminalCommand.size(); i++) {
 	//cout << "7" << endl;
-		if(terminalComand.at(i) == ";") {
+		if(terminalComand.at(i) == ';') {
 			//cout << "8" << endl;
 			j++;
 	        	Semicolon* semi = new Semicolon(parsed.at(j - 1),parsed.at(j + 1));
 			parsed2.push_back(semi);
 	    	}
-		else if(terminalCommand.at(i) == "|" && terminalCommand.at(i+1) == "|" ) {
+		else if(terminalCommand.at(i) == '|' && terminalCommand.at(i+1) == '|' ) {
 			//cout << "9" << endl;
 			j++;
         		Pipe* pip = new Pipe(parsed.at(j - 1),parsed.at(j + 1));
 		    	parsed2.push_back(pip);
 			
 		}
-		else if (terminalCommand.at(i) == "&" && terminalCommand.at(i+1) == "&") {
+		else if (terminalCommand.at(i) == '&' && terminalCommand.at(i+1) == '&') {
 			//cout << "10" << endl;
 			j++;
             		Ampersand* amp = new Ampersand(parsed.at(j - 1),parsed.at(j + 1));
 		 	parsed2.push_back(amp);
 		}
-		else if (terminalCommand.at(i)->returnCommand() == "#") {
+		else if (terminalCommand.at(i) == '#') {
 			//cout << "11" << endl;
 	    		save = i;
 	    		break;
@@ -58,11 +58,12 @@ void RShell::parse () {
 	}
 	else {
 		for (unsigned i = 0; i < terminalCommand.size(); i++) {
-		    if(terminalCommand.at(i) == ";" || terminalCommand.at(i) == "|" || terminalCommand.at(i) == "&") {
+		    if(terminalCommand.at(i) == ';' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == '&') {
 			cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
+			break;
 			//cout << "14" << endl;
 		    }
-		    else if(parsed.at(i)->returnCommand() == "#") {
+		    else if(terminalCommand.at(i) == "#") {
 			//cout << "15" << endl;
 			save = i;
 			break;
@@ -77,10 +78,10 @@ void RShell::parse () {
         ofstream ofs;	
         ofs.open("comments.txt");
         if(ofs.is_open()) {
-            for(unsigned j = save; j < parsed.size();j++) {
+            for(unsigned k = save; k < terminalCommand.size();k++) {
 	        //write parsed[j] to comment section;
 		//cout << "18" << endl;
-                ofs << parsed.at(j);
+                ofs << parsed.at(k);
 		//cout << "19" << endl;
             }
             ofs.close();
@@ -128,4 +129,5 @@ void RShell::program() {
 void RShell::reset() {
 	input.clear();
 	parsed.clear();
+	parsed2.clear();
 }
