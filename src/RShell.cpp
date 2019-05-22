@@ -17,9 +17,10 @@ void RShell::parse () {
     pch = strtok (terminalCommand,";&#");
     while (pch != NULL)
     {
-    	pch = strtok (NULL, " ;&|#");
 	UserCommands* temp = new UserCommands(pch);
 	parsed.push_back(temp);
+    	pch = strtok (NULL, ";&|#");
+
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
