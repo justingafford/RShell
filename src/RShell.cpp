@@ -112,7 +112,7 @@ void RShell::setInput(string inp) {
 
 void RShell::program() {
     for (unsigned i = 0; i < input.size(); i++) {
-        if ((input.at(i)->returnCommand() == "exit" || input.at(i)->returnCommand() == " exit"  || input.at(i)->returnCommand() == "exit " || input.at(i)->returnCommand() == " exit ") && input.at(i)->ExecuteStatus()) {
+        if ((input.at(i)->returnCommand() == "exit" || input.at(i)->returnCommand() == " exit"  || input.at(i)->returnCommand() == "exit " || input.at(i)->returnCommand() == " exit ") && !input.at(i)->ExecuteStatus()) {
 	    exited = true;
             exit(1);
         }
