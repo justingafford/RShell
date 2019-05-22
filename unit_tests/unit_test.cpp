@@ -75,15 +75,17 @@ TEST(RShellTests, SingleCommandTest) {
 
 TEST(RShellTests, MultipleCommandTest) {
     RShell test;
-    string command = "echo hello && echo world";
+    string command = "echo hello && echo world || mkdir test";
     test.setInput(command);
     test.parse();
     test.program();
     ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo hello ");
     ASSERT_EQ(test.accessParsedTwo().at(0)->returnCommand(),"&&");
-    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world");
-    ASSERT_EQ(test.accessParsed().size(),2);
-    ASSERT_EQ(test.accessParsedTwo().size(),1);
+    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world ");
+    ASSERT_EQ(test.accessParsedTwo().at(1)->returnCommand(),"||");
+    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," mkdir test");
+    ASSERT_EQ(test.accessParsed().size(),3);
+    ASSERT_EQ(test.accessParsedTwo().size(),2);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
