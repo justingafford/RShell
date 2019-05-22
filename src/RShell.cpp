@@ -10,60 +10,14 @@
 using namespace std;
 
 void RShell::parse () {
-    ostringstream ss;
-    //parse part 1(put commands into vector of strings)
-    for(unsigned i = 0; i < terminalCommand.size();  i++) {
-	//cout << "1" << endl;
-	while(terminalCommand.at(i) != ';'|| terminalCommand.at(i) !='&'  || terminalCommand.at(i)!='|' || terminalCommand.at(i)!='#' || terminalCommand.at(i) != '\n' ) {
-		//cout << "while" << endl;
-		if(i < terminalCommand.size()) {
-			ss << terminalCommand.at(i);
-			i++;
-			if (i == (terminalCommand.size() - 1)) {
-				ss << terminalCommand.at(i);
-	 			break;
-			}
-		}
-		else {
-			break;
-		}
-    	}
-    	if(terminalCommand.at(i) == ';') {
-		//cout << "2" << endl;
-		UserCommands* temp = new UserCommands;
-		temp->setCommand(";");
-    		parsed.push_back(temp);
-		currFunction = "";
-    	}
-	else if(terminalCommand.at(i) == '|') {
-		//cout << "3" << endl;
-	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand("||");
-    	    	parsed.push_back(temp);
-		currFunction = "";
-	}
-	else if(terminalCommand.at(i) == '&') {
-		//cout << "4" << endl;
-	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand("&&");
-    		parsed.push_back(temp);
-		currFunction = "";
-	}
-	else if(terminalCommand.at(i) == '#') {
-		//cout << "5" << endl;
-	    	UserCommands* temp = new UserCommands;
-	   	temp->setCommand("#");
-    	    	parsed.push_back(temp);
-		currFunction = "";
-	}
-    	else if(terminalCommand.at(i) != '\n') {
-		//cout << "6" << endl;
-		//cout << "Function at 0: " << currFunction << endl;
-	    	UserCommands* temp = new UserCommands;
-	    	temp->setCommand(ss.str());
-    		parsed.push_back(temp);
-		currFunction = "";
-   	}
+    //code from http://www.cplusplus.com/reference/cstring/strtok/
+    char * pch;
+  
+    pch = strtok (terminalCommand,";&#");
+    while (pch != NULL)
+    {
+    	pch = strtok (NULL, " ;&|#");
+	parsed.push_back(pch);
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
