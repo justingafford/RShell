@@ -13,7 +13,7 @@ class RShell {
   private:
     string terminalCommand;
     vector<UserCommands*> parsed;
-    vector<UserCommands*> parsed2;
+    vector<Connectors*> parsed2;
     vector<Base*> input;
     string currFunction;
     bool createdComment = false;
