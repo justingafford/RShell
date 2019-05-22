@@ -11,22 +11,22 @@
 using namespace std;
 
 void RShell::parse () {
-    //code from http://www.cplusplus.com/reference/cstring/strtok/
-    char * pch;
-  
-    pch = strtok (terminalCommand,";&#");
-    while (pch != NULL)
-    {
-	UserCommands* temp = new UserCommands(pch);
-	parsed.push_back(temp);
-    	pch = strtok (NULL, ";&|#");
-
+    //this creates the parsed list.
+    char * temp = new char[terminalCommand.length() + 1];             
+    strcpy(temp, terminalCommand.c_str());                                  
+    
+    char * token = strtok(temp, ";|&#"); 
+    while (token != NULL) {                                                 
+       UserCommands* yeet = new UserCommands(token);
+       yeet.push_back(parsed);
+       token = strtok(NULL, ";|&#");
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
     //parse part 2(this populates input vector by allocating new variables of type UserCommands
     // and Connectors)
-    unsigned save = -1;
+	
+    unsigned save = -1; //index where we read a comment if you make one.
     for (unsigned i = 0; i < parsed.size(); i++) {
 	//cout << "7" << endl;
 	if(parsed.size() > 2) {
