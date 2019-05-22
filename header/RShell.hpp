@@ -35,7 +35,7 @@ class RShell {
     };
     vector<Connectors*> accessParsedTwo () {
         return parsed2;
-    };  
+    };
     bool returnExited() {
         return exited;
     };
