@@ -73,7 +73,7 @@ TEST(RShellTests, MultipleCommandTest) {
     ASSERT_EQ(test.accessParsedTwo().at(0)->returnCommand(),"&&");
     ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world ");
     ASSERT_EQ(test.accessParsedTwo().at(1)->returnCommand(),"||");
-    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," mkdir test");
+    ASSERT_EQ(test.accessParsed().at(2)->returnCommand()," mkdir test");
     ASSERT_EQ(test.accessParsed().size(),3);
     ASSERT_EQ(test.accessParsedTwo().size(),2);
     test.reset();
