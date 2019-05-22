@@ -53,9 +53,7 @@ void RShell::parse () {
 			//cout << "11" << endl;
 	    		save = i;
 	    		break;
-			j++;
-        	}
-		
+        	}		
 	}
     }
     else {
@@ -82,7 +80,7 @@ void RShell::parse () {
             for(unsigned k = save; k < terminalCommand.size();k++) {
 	        //write parsed[j] to comment section;
 		//cout << "18" << endl;
-                ofs << parsed.at(k);
+                ofs << terminalCommand.at(k);
 		//cout << "19" << endl;
             }
             ofs.close();
