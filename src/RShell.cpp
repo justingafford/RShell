@@ -126,7 +126,7 @@ void RShell::program() {
 		    perror("Fork() failed.");
 		}
 		else if (pid == 0) {
-		    if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1)
+		    if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1) {
 		        perror("Command Error.");
 		    	exit(0);
 		    }
