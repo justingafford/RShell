@@ -120,8 +120,8 @@ void RShell::program() {
 	    input.at(i)->evaluate();
 	else {
 	    if(input.at(i)->ExecuteStatus()) {
-			input.at(i)->DoNotExecute();
-			pid_t pid = fork();
+		input.at(i)->DoNotExecute();
+		pid_t pid = fork();
 		if(pid < 0) {
 		    perror("Fork() failed.");
 		}
