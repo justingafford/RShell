@@ -90,11 +90,19 @@ void RShell::parse () {
             cout << "Error creating comment section" << endl;
         }
     }
-    unsigned temp = parsed.size() + parsed2.size();
 	
-    for(unsigned m = 0; m < temp / 2; m++) {
-	input.push_back(parsed.at(m));
-	input.push_back(parsed2.at(m));
+    int inputSize = parsed.size() + parsed2.size();
+    int itr1 = 0;
+    int itr2 = 0;
+    while(input.size() != inputSize) {
+	if(itr1 < parsed.size()) {
+	    input.push_back(parsed.at(itr1));
+	    itr1++;
+	}
+	if(itr2 < parsed2.size()) {
+	    input.push_back(parsed2.at(itr2));
+  	    itr2++;
+	}
     }
 }
 
