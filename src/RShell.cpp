@@ -32,27 +32,28 @@ void RShell::parse () {
 	//cout << "7" << endl;
 		if(terminalCommand.at(i) == ';') {
 			//cout << "8" << endl;
-			j++;
-	        	Semicolon* semi = new Semicolon(parsed.at(j - 1),parsed.at(j + 1));
+		
+	        	Semicolon* semi = new Semicolon(parsed.at(j),parsed.at(j + 1));
 			parsed2.push_back(semi);
+			j++;
 	    	}
 		else if(terminalCommand.at(i) == '|' && terminalCommand.at(i+1) == '|' ) {
 			//cout << "9" << endl;
-			j++;
-        		Pipe* pip = new Pipe(parsed.at(j - 1),parsed.at(j + 1));
+        		Pipe* pip = new Pipe(parsed.at(j),parsed.at(j + 1));
 		    	parsed2.push_back(pip);
-			
+			j++;	
 		}
 		else if (terminalCommand.at(i) == '&' && terminalCommand.at(i+1) == '&') {
 			//cout << "10" << endl;
-			j++;
-            		Ampersand* amp = new Ampersand(parsed.at(j - 1),parsed.at(j + 1));
+			
+            		Ampersand* amp = new Ampersand(parsed.at(j),parsed.at(j + 1));
 		 	parsed2.push_back(amp);
 		}
 		else if (terminalCommand.at(i) == '#') {
 			//cout << "11" << endl;
 	    		save = i;
 	    		break;
+			j++;
         	}
 		
 	}
