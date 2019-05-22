@@ -4,7 +4,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <unistd.h> 
+#include <unistd.h>
+#include <string.h>
 #include <stdio.h> 
 #include <sys/wait.h>
 using namespace std;
