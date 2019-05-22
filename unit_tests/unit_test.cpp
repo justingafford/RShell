@@ -82,7 +82,8 @@ TEST(RShellTests, MultipleCommandTest) {
     ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo hello ");
     ASSERT_EQ(test.accessParsedTwo().at(0)->returnCommand(),"&&");
     ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world");
-    ASSERT_EQ(test.accessParsed().size(),3);
+    ASSERT_EQ(test.accessParsed().size(),2);
+    ASSERT_EQ(test.accessParsedTwo().size(),1);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
