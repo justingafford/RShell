@@ -80,8 +80,8 @@ TEST(RShellTests, MultipleCommandTest) {
     test.parse();
     test.program();
     ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo hello ");
-    ASSERT_EQ(test.accessParsed().at(1)->returnCommand(),"&&");
-    ASSERT_EQ(test.accessParsed().at(2)->returnCommand()," echo world");
+    ASSERT_EQ(test.accessParsed2().at(0)->returnCommand(),"&&");
+    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world");
     ASSERT_EQ(test.accessParsed().size(),3);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
