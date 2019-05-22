@@ -11,7 +11,7 @@
 using namespace std;
 
 void RShell::parse () {
-    //this creates the parsed list.
+    //this creates the list of commands i.e. echo test, mkdir yeet, etc
     char * temp = new char[terminalCommand.length() + 1];             
     strcpy(temp, terminalCommand.c_str());                                  
     
@@ -23,59 +23,51 @@ void RShell::parse () {
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
-    //parse part 2(this populates input vector by allocating new variables of type UserCommands
-    // and Connectors)
 	
+    //parse part 2(this populates parsed2 vector, creating a vector of connectors
     unsigned save = -1; //index where we read a comment if you make one.
-    for (unsigned i = 0; i < parsed.size(); i++) {
+    unsigned j = 0;
+    if(parsed.size() > 2) {
+    	for (unsigned i = 0; i < terminalCommand.size(); i++) {
 	//cout << "7" << endl;
-	if(parsed.size() > 2) {
-		if(parsed.at(i)->returnCommand() == ";") {
+		if(terminalComand.at(i) == ";") {
 			//cout << "8" << endl;
-	        	Semicolon* semi = new Semicolon(parsed.at(i - 1),parsed.at(i + 1));
-			input.push_back(semi);
+			j++;
+	        	Semicolon* semi = new Semicolon(parsed.at(j - 1),parsed.at(j + 1));
+			parsed2.push_back(semi);
 	    	}
-		else if(parsed.at(i)->returnCommand() == "||") {
+		else if(terminalCommand.at(i) == "|" && terminalCommand.at(i+1) == "|" ) {
 			//cout << "9" << endl;
-        		Pipe* pip = new Pipe(parsed.at(i - 1),parsed.at(i + 1));
-		    	input.push_back(pip);
+			j++;
+        		Pipe* pip = new Pipe(parsed.at(j - 1),parsed.at(j + 1));
+		    	parsed2.push_back(pip);
+			
 		}
-		else if (parsed.at(i)->returnCommand() == "&&") {
+		else if (terminalCommand.at(i) == "&" && terminalCommand.at(i+1) == "&") {
 			//cout << "10" << endl;
-            		Ampersand* amp = new Ampersand(parsed.at(i - 1),parsed.at(i + 1));
-			input.push_back(amp);
+			j++;
+            		Ampersand* amp = new Ampersand(parsed.at(j - 1),parsed.at(j + 1));
+		 	parsed2.push_back(amp);
 		}
-		else if (parsed.at(i)->returnCommand() == "#") {
+		else if (terminalCommand.at(i)->returnCommand() == "#") {
 			//cout << "11" << endl;
 	    		save = i;
 	    		break;
         	}
-		else {
-	    		UserCommands* comm = new UserCommands();
-			//cout << "12" << endl;
-			comm = parsed.at(i);
-			//cout << "13" << endl;
-	    		input.push_back(comm);
-		}    
+		
 	}
 	else {
-		if(parsed.at(i)->returnCommand() == ";" || parsed.at(i)->returnCommand() == "||" || parsed.at(i)->returnCommand() == "&&") {
+		for (unsigned i = 0; i < terminalCommand.size(); i++) {
+		    if(terminalCommand.at(i) == ";" || terminalCommand.at(i) == "|" || terminalCommand.at(i) == "&") {
 			cout << "Error: connectors(';','||','&&') must have a left and right operand." << endl;
 			//cout << "14" << endl;
-		}
-		else {
-			if(parsed.at(i)->returnCommand() == "#") {
-				//cout << "15" << endl;
-				save = i;
-				break;
-			}
-			else { //parsed.at(i) is a UserCommand
-				UserCommands* comm = new UserCommands();
-				//cout << "16" << endl;
-				comm = parsed.at(i);
-				//cout << "17" << endl;
-	    			input.push_back(comm);
-			}
+		    }
+		    else if(parsed.at(i)->returnCommand() == "#") {
+			//cout << "15" << endl;
+			save = i;
+			break;
+		    }
+			
 		}
 	}
     } 
