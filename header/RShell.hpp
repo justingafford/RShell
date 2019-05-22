@@ -33,7 +33,7 @@ class RShell {
     vector<UserCommands*> accessParsed () {
         return parsed;
     };
-    vector<UserCommands*> accessParsedTwo () {
+    vector<Connectors*> accessParsedTwo () {
         return parsed2;
     };  
     bool returnExited() {
