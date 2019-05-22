@@ -30,7 +30,7 @@ void RShell::parse () {
     if(parsed.size() > 2) {
     	for (unsigned i = 0; i < terminalCommand.size(); i++) {
 	//cout << "7" << endl;
-		if(terminalComand.at(i) == ';') {
+		if(terminalCommand.at(i) == ';') {
 			//cout << "8" << endl;
 			j++;
 	        	Semicolon* semi = new Semicolon(parsed.at(j - 1),parsed.at(j + 1));
@@ -56,20 +56,20 @@ void RShell::parse () {
         	}
 		
 	}
-	else {
-		for (unsigned i = 0; i < terminalCommand.size(); i++) {
-		    if(terminalCommand.at(i) == ';' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == '&') {
-			cout << "Error: connectors(';', '||' and '&&') must have a left and right operand." << endl;
-			break;
-			//cout << "14" << endl;
-		    }
-		    else if(terminalCommand.at(i) == '#') {
-			//cout << "15" << endl;
-			save = i;
-			break;
-		    }
+    }
+    else {
+	for (unsigned i = 0; i < terminalCommand.size(); i++) {
+	    if(terminalCommand.at(i) == ';' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == '&') {
+		cout << "Error: connectors(';', '||' and '&&') must have a left and right operand." << endl;
+		break;
+		//cout << "14" << endl;
+	    }
+	    else if(terminalCommand.at(i) == '#') {
+		//cout << "15" << endl;
+		save = i;
+		break;
+	    }
 			
-		}
 	}
     } 
     
