@@ -50,25 +50,6 @@ TEST(ConnectorsTests, Ampersand) {
     ASSERT_EQ(right->ExecuteStatus(),false);
 }
 
-TEST(ExitTests, BasicExit) {
-    RShell test;
-    string command = "exit";
-    test.setInput(command);
-    test.parse();
-    test.program();
-    test.reset();
-}
-
-TEST(RShellTests, ExitWithCommands) {
-    RShell test;
-    string command = "echo exiting && exit";
-    test.setInput(command);
-    test.parse();
-    test.program();
-    test.reset();
-    ASSERT_EQ(test.returnExited(),true);
-}
-
 TEST(RShellTests, SingleCommandTest) {
     RShell test;
     string command = "echo hello";
@@ -111,6 +92,25 @@ TEST(RShellTests, CommentedCommandTest) {
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
+}
+
+TEST(ExitTests, BasicExit) {
+    RShell test;
+    string command = "exit";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
+}
+
+TEST(ExitTests, ExitWithCommands) {
+    RShell test;
+    string command = "echo exiting && exit";
+    test.setInput(command);
+    test.parse();
+    test.program();
+    test.reset();
+    ASSERT_EQ(test.returnExited(),true);
 }
 
 int main(int argc, char **argv) {
