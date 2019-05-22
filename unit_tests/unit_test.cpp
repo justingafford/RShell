@@ -105,15 +105,6 @@ TEST(RShellTests, CommentedCommandTest) {
     ASSERT_EQ(test.accessInput().empty(),true);
 }
 
-TEST(ExitTests, BasicExit) {
-    RShell test;
-    string command = "exit";
-    test.setInput(command);
-    test.parse();
-    test.program();
-    test.reset();
-}
-
 TEST(ExitTests, ExitWithCommands) {
     RShell test;
     string command = "echo exiting && exit";
