@@ -74,9 +74,20 @@ TEST(RShellTests, MultipleCommandTest) {
     ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world ");
     ASSERT_EQ(test.accessParsedTwo().at(1)->returnCommand(),"||");
     ASSERT_EQ(test.accessParsed().at(2)->returnCommand()," mkdir test");
+    
+    ASSERT_EQ(test.accessInput().at(0)->returnCommand(),"echo hello ");
+    ASSERT_EQ(test.accessInput().at(1)->returnCommand(),"&&");
+    ASSERT_EQ(test.accessInput().at(2)->returnCommand()," echo world ");
+    ASSERT_EQ(test.accessInput().at(3)->returnCommand(),"||");
+    ASSERT_EQ(test.accessInput().at(4)->returnCommand()," mkdir test");
+    
     ASSERT_EQ(test.accessParsed().size(),3);
     ASSERT_EQ(test.accessParsedTwo().size(),2);
+    
+    ASSERT_EQ(test.accessInput().size(),5);
+    
     test.reset();
+    
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
 }
