@@ -29,7 +29,7 @@ class RShell {
     };
     void createCommands(vector<UserCommands*> parsedd){
         for(unsigned i = 0; i < parsedd.size(); i++) {     
-             const char* commandTemp = parsedd.at(i)->returnCommand().c_str();
+             char* commandTemp = parsedd.at(i)->returnCommand().c_str();
              parsedd.at(i)->argument()[i] = commandTemp;
         }
     };
