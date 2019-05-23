@@ -131,6 +131,7 @@ void RShell::program() {
 		    if(execvp((parsed.at(i)->argument()[0]),parsed.at(i)->argument()) == -1) {
 		        perror("Command Error.");
 		    	exit(0);
+			printDollarSign();
 		    }
 	            else {
 	            	while(wait(0) != pid);
