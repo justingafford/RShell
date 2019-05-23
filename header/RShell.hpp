@@ -26,7 +26,7 @@ class RShell {
     vector<Base*> accessInput () {
         return input;
     };
-    void createCommands(vector<UserCommands* parsedd> {
+    void createCommands(vector<UserCommands*> parsedd){
         for(unsigned i = 0; i < parsedd.size(); i++) {
               arguement()[i] = static_cast<char*>(parsedd.at(i)->command);
         }
