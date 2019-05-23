@@ -111,22 +111,23 @@ void RShell::setInput(string inp) {
 }
 
 void RShell::program() {
-    for (unsigned i = 0; i < input.size(); i++) {
-        if ((input.at(i)->returnCommand() == "exit" || input.at(i)->returnCommand() == " exit"  || input.at(i)->returnCommand() == "exit " || input.at(i)->returnCommand() == " exit ") && !input.at(i)->ExecuteStatus()) {
+    for (unsigned i = 0; i < parsed.size(); i++) {
+        if ((parsed.at(i)->returnCommand() == "exit" || parsed.at(i)->returnCommand() == " exit"  || parsed.at(i)->returnCommand() == "exit " || parsed.at(i)->returnCommand() == " exit ") && !parsed.at(i)->ExecuteStatus()) {
 	    exited = true;
             exit(1);
         }
-	else if((input.at(i)->returnCommand() == ";" || input.at(i)->returnCommand() == "&&" || input.at(i)->returnCommand() == "||"))
-	    input.at(i)->evaluate();
+	    
+	else if(i < parsed2.size() &&(parsed2.at(i)->returnCommand() == ";" || parsed2.at(i)->returnCommand() == "&&" || parsed2.at(i)->returnCommand() == "||"))
+	    parsed2.at(i)->evaluate();
 	else {
-	    if(input.at(i)->ExecuteStatus()) {
-		input.at(i)->DoNotExecute();
+	    if(parsed.at(i)->ExecuteStatus()) {
+		parsed.at(i)->DoNotExecute();
 		pid_t pid = fork();
 		if(pid < 0) {
 		    perror("Fork() failed.");
 		}
 		else if (pid == 0) {
-		    if(execvp((input.at(i)->argument()[0]),input.at(i)->argument()) == -1) {
+		    if(execvp((parsed.at(i)->argument()[0]),parsed.at(i)->argument()) == -1) {
 		        perror("Command Error.");
 		    	exit(0);
 		    }
