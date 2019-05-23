@@ -1,6 +1,7 @@
 #ifndef RSHELL_HPP
 #define RSHELL_HPP
 #include <iostream>
+#include <cstring>
 #include "Base.hpp"
 #include "UserCommands.hpp"
 #include "Connectors.hpp"
