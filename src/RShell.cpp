@@ -104,7 +104,7 @@ void RShell::parse () {
   	    itr2++;
 	}
     }
-    //createCommands(parsed);
+    CreateCommands(parsed);
 }
 
 void RShell::setInput(string inp) {
