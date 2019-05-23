@@ -28,8 +28,9 @@ class RShell {
         return input;
     };
     void createCommands(vector<UserCommands*> parsedd){
-        for(unsigned i = 0; i < parsedd.size(); i++) {
-              strcpy(parsedd.at(i)->argument()[i],static_cast<char>(parsedd.at(i)->returnCommand()));
+        for(unsigned i = 0; i < parsedd.size(); i++) {     
+             const char* commandTemp = parsedd.at(i)->returnCommand().c_str()));
+             parsedd.at(i)->argument()[i] = commandTemp;
         }
     };
     bool commentCreated () {
