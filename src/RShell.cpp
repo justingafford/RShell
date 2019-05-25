@@ -137,7 +137,7 @@ void RShell::program() {
 	            else {
 			commandError = true;
 	            	while(wait(0) != pid);
-                    	input.at(i)->DoExecute();
+                    	parsed.at(i)->DoExecute();
 	            }    
             	}
 	    }
