@@ -15,11 +15,11 @@ void RShell::parse () {
     char * temp = new char[terminalCommand.length() + 1];             
     strcpy(temp, terminalCommand.c_str());                                  
     
-    char * token = strtok(temp, ";|&#"); 
+    char * token = strtok(temp, " ;|&#"); 
     while (token != NULL) {                                                 
        UserCommands* yeet = new UserCommands(token);
        parsed.push_back(yeet);
-       token = strtok(NULL, ";|&#");
+       token = strtok(NULL, " ;|&#");
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
