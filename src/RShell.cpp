@@ -110,8 +110,12 @@ void RShell::parse () {
 void RShell::setInput(string inp) {
 	terminalCommand = inp;
 }
-
+bool commandError = false;
 void RShell::program() {
+    if(commandError) {
+	cout << "$";
+	commandError = false;
+    }
     for (unsigned i = 0; i < parsed.size(); i++) {
         if ((parsed.at(i)->returnCommand() == "exit" || parsed.at(i)->returnCommand() == " exit"  || parsed.at(i)->returnCommand() == "exit " || parsed.at(i)->returnCommand() == " exit ") && parsed.at(i)->ExecuteStatus()) {
 	    exited = true;
@@ -129,13 +133,14 @@ void RShell::program() {
 		}
 		else if (pid == 0) {
 		    if((execvp((parsed.at(i)->argument()[0]),parsed.at(i)->argument()) == -1)) {
+			commandError = true;
 		        perror("Command Error.");
 		    	exit(0);
 		    }
 	            else {
+			commandError = true;
 	            	while(wait(0) != pid);
                     	input.at(i)->DoExecute();
-			cout << "$"; 
 	            }    
             	}
 	    }
