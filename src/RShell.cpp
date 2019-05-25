@@ -15,11 +15,11 @@ void RShell::parse () {
     char * temp = new char[terminalCommand.length() + 1];             
     strcpy(temp, terminalCommand.c_str());                                  
     
-    char * token = strtok(temp, ";|&#"); 
+    char * token = strtok(temp, " ;|&#"); 
     while (token != NULL) {                                                 
        UserCommands* yeet = new UserCommands(token);
        parsed.push_back(yeet);
-       token = strtok(NULL, ";|&#");
+       token = strtok(NULL, " ;|&#");
     }
     //cout << "This is the size of vector: " << parsed.size() << endl;
     //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
@@ -112,10 +112,7 @@ void RShell::setInput(string inp) {
 }
 bool commandError = false;
 void RShell::program() {
-    if(commandError) {
-	cout << "$";
-	commandError = false;
-    }
+    cout << "$";
     for (unsigned i = 0; i < parsed.size(); i++) {
         if ((parsed.at(i)->returnCommand() == "exit" || parsed.at(i)->returnCommand() == " exit"  || parsed.at(i)->returnCommand() == "exit " || parsed.at(i)->returnCommand() == " exit ") && parsed.at(i)->ExecuteStatus()) {
 	    exited = true;
