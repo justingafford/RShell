@@ -56,8 +56,9 @@ TEST(RShellTests, SingleCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo hello");
-    ASSERT_EQ(test.accessParsed().size(),1);
+    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo");
+    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"hello");
+    ASSERT_EQ(test.accessParsed().size(),2);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
     ASSERT_EQ(test.accessInput().empty(),true);
@@ -69,22 +70,28 @@ TEST(RShellTests, MultipleCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo hello ");
+    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo");
     ASSERT_EQ(test.accessParsedTwo().at(0)->returnCommand(),"&&");
-    ASSERT_EQ(test.accessParsed().at(1)->returnCommand()," echo world ");
+    ASSERT_EQ(test.accessParsed().at(1)->returnCommand(),"hello");
+    ASSERT_EQ(test.accessParsed().at(2)->returnCommand(),"echo");
+    ASSERT_EQ(test.accessParsed().at(3)->returnCommand(),"world");
     ASSERT_EQ(test.accessParsedTwo().at(1)->returnCommand(),"||");
-    ASSERT_EQ(test.accessParsed().at(2)->returnCommand()," mkdir test");
+    ASSERT_EQ(test.accessParsed().at(4)->returnCommand(),"mkdir");
+    ASSERT_EQ(test.accessParsed().at(5)->returnCommand(),"test");
     
-    ASSERT_EQ(test.accessInput().at(0)->returnCommand(),"echo hello ");
-    ASSERT_EQ(test.accessInput().at(1)->returnCommand(),"&&");
-    ASSERT_EQ(test.accessInput().at(2)->returnCommand()," echo world ");
-    ASSERT_EQ(test.accessInput().at(3)->returnCommand(),"||");
-    ASSERT_EQ(test.accessInput().at(4)->returnCommand()," mkdir test");
+    ASSERT_EQ(test.accessInput().at(0)->returnCommand(),"echo");
+    ASSERT_EQ(test.accessInput().at(1)->returnCommand(),"hello");
+    ASSERT_EQ(test.accessInput().at(2)->returnCommand(),"&&");
+    ASSERT_EQ(test.accessInput().at(3)->returnCommand(),"echo");
+    ASSERT_EQ(test.accessInput().at(4)->returnCommand(),"world");
+    ASSERT_EQ(test.accessInput().at(5)->returnCommand(),"||");
+    ASSERT_EQ(test.accessInput().at(6)->returnCommand(),"mkdir");
+    ASSERT_EQ(test.accessInput().at(7)->returnCommand(),"test");
     
-    ASSERT_EQ(test.accessParsed().size(),3);
+    ASSERT_EQ(test.accessParsed().size(),6);
     ASSERT_EQ(test.accessParsedTwo().size(),2);
     
-    ASSERT_EQ(test.accessInput().size(),5);
+    ASSERT_EQ(test.accessInput().size(),8);
     
     test.reset();
     
@@ -98,7 +105,8 @@ TEST(RShellTests, CommentedCommandTest) {
     test.setInput(command);
     test.parse();
     test.program();
-    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo test ");
+    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"echo");
+    ASSERT_EQ(test.accessParsed().at(0)->returnCommand(),"test");
     ASSERT_EQ(test.commentCreated(),true);
     test.reset();
     ASSERT_EQ(test.accessParsed().empty(),true);
