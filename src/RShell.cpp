@@ -112,7 +112,6 @@ void RShell::setInput(string inp) {
 }
 bool commandError = false;
 void RShell::program() {
-    cout << "$";
     for (unsigned i = 0; i < parsed.size(); i++) {
         if ((parsed.at(i)->returnCommand() == "exit" || parsed.at(i)->returnCommand() == " exit"  || parsed.at(i)->returnCommand() == "exit " || parsed.at(i)->returnCommand() == " exit ") && parsed.at(i)->ExecuteStatus()) {
 	    exited = true;
