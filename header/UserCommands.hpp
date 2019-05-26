@@ -8,6 +8,7 @@ using namespace std;
 
 class UserCommands: public Base {
  private:
+  vector<string> arguments;
   string command; //represents the user command i.e. echo,etc.
   bool execute; //does the command execute?
   char* deezArgs[1024];
@@ -16,7 +17,6 @@ class UserCommands: public Base {
    command = "";
    execute = true;
   };
-  
   UserCommands (string comm) {
    command = comm;
    execute = true;
@@ -27,9 +27,15 @@ class UserCommands: public Base {
   string returnCommand() {
     return command;
   };
+  vector<std::string> returnArguments(){
+    return arguments;
+  };
   char ** argument() {
     return deezArgs;
   };
+  void addArguments(string arg){
+    arguments.push_back(arg);
+  }
   void evaluate();
   void DoNotExecute();
   void DoExecute();
