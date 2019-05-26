@@ -88,4 +88,7 @@ List of classes and tests we will complete (ordered):
 * Test User Input
 
 
+__Know Issues/Errors__
 
+* User input does not work for the first line, but afterwards, works as intended. i.e. when you run "./rshell" and type the command "echo hello" for the first time it will not output anything, but upon successive inputs of "echo hello" you get hello output
+*
