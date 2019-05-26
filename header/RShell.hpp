@@ -28,11 +28,13 @@ class RShell {
         return input;
     };
     void createCommands(vector<UserCommands*> parsedd){
-        for(unsigned i = 0; i < parsedd.size(); i++) {     
-             char* commandTemp = new char[parsedd.at(i)->returnCommand().size()]; 
-             strcpy(commandTemp,parsedd.at(i)->returnCommand().c_str());
-             parsedd.at(i)->argument()[i] = commandTemp;
-        }
+       char * temp = new char[terminalCommand.length() + 1];             
+       strcpy(temp, terminalCommand.c_str());                                  
+       char * token = strtok(temp, " ;|&#"); 
+       while (token != NULL) {                                                 
+            argument.push_back(yeet);
+            token = strtok(NULL, " ;|&#");
+      }
     };
     bool commentCreated () {
         return createdComment;
