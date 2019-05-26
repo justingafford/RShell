@@ -6,13 +6,13 @@ Justin Gafford 862052819 jgaff001@ucr
 Wayland Chang 862010512 wchan051@ucr.edu 
 
 ### Introduction
-In this project we are creating the basis for a command shell that can compile a command in a command prompt and execute them according to the specifications defined in our class descriptions. In terms of formatting, the user can can use any combination of '&&', '||' or ';' as 'connectors' which connect multiple commands, allowing them all to compile at once. In order to accomplish this, we have a base class which all other classes inherit from, a connector class which the semicolon, ampersand, and pipe class inherit, and a command class which stores user inputs.
+In this project we are implementing the test and precedence functionality. We must make a test command that evaluates to (TRUE) if a path exists as specified by the parameters of test, and that evaluates to (FALSE) if a path exists as specified by the parameters of test. Furthermore, the precedence functionality involves the use of parenthesis in order to determine the precedence of user commands. i.e. while echo A && echo B || echo C && echo D will evaluate to A B D; (echo A && echo B) || (echo C && echo D) evaluates to A B.
 
-As specified by the Assignment 2 manual, we must build a program in the following steps:
+As specified by the Assignment 2&3 manuals, we must build a program in the following steps:
 ```
 1. Print a command prompt (e.g. `$`)
 2. Read in a line of command(s) (and connector(s)) from standard input
-3. Execute the appropriate commands using fork, execvp, and waitpid
+3. Execute the appropriate commands using fork, execvp, stat and waitpid
 ```
 
 ### UML Diagram
@@ -61,6 +61,10 @@ __waitpid()__
 
 waitpid() waits for proccesses to finish, and thus, we can use it to allow our program to compile multiple commands at once. By setting pid to a specific value, we can tell our program to wait until its compiled all of the commands passed through by the use of connectors before allowing any more user input.
 
+__stat()__
+
+stat() stats the file pointed to by path and fills in buf. Essessentially, stat() returns whether or not a file path exists, enabling the implementation of our test command.
+
 __Primary websites used for Research:__
 
 * [Prototype](http://www.cs.ecu.edu/karl/4630/sum01/example1.html) - used to help build prototype.
@@ -71,32 +75,20 @@ __Primary websites used for Research:__
 
 * [waitpid()](https://stackoverflow.com/questions/21248840/example-of-waitpid-in-use) - used to understand waitpid() command.
 
+* [stat()](https://linux.die.net/man/2/stat) - used to understand the stat() command.
+
 ### Roadmaps/Issues
 
 List of classes and tests we will complete (ordered):
 
-1. Base Class
+1. Update RShell
 
-2. RShell Class
+* Add Precedence 
+* Add Test using stat()
+* Test User Input
 
-* test cout output
 
-3. Connectors Class
+__Know Issues/Errors__
 
-* test evaluate()
-
-4. UserCommands Class
-
-* test evaluate()
-
-5. Semicolon Class
-
-* test evalute()
-
-6. Ampersand Class
-
-* test evaluate()
-
-7. Pipe Class
-
-* test evaluate()
+* User input does not work for the first line, but afterwards, works as intended. i.e. when you run "./rshell" and type the command "echo hello" for the first time it will not output anything, but upon successive inputs of "echo hello" you get hello output
+*

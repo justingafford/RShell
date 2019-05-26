@@ -8,6 +8,8 @@
 #include <string.h>
 #include <stdio.h> 
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 using namespace std;
 
 void RShell::parse () {
@@ -124,7 +126,11 @@ void RShell::parse () {
       }
     }
   }
-    
+  
+  for (unsigned z = 0; z < parsed.size(); z++) {
+	cout << "Parsed vector at: " << z << " " << parsed.at(z)->returnCommand();
+	cout << endl;
+  }
   //part 3(creates comments.txt file
   if(save != -1) {
     ofstream ofs;	
@@ -177,7 +183,7 @@ void RShell::program() {
       exit(1);
     }
 	    
-    else if(i < parsed2.size() &&(parsed2.at(i)->returnCommand() == ";" || parsed2.at(i)->returnCommand() == "&&" || parsed2.at(i)->returnCommand() == "||"))
+    else if(i < parsed2.size())
       parsed2.at(i)->evaluate();
     else {
       if(parsed.at(i)->ExecuteStatus()) {
