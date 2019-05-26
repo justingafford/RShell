@@ -22,6 +22,7 @@ class RShell {
   public:
     void printDollarSign() {
         cout << "$";
+        cout.flush();
     };
   
     vector<Base*> accessInput () {
@@ -31,20 +32,11 @@ class RShell {
         return createdComment;
     };
     void createCommands() {
-       char * temp = new char[terminalCommand.length() + 1];
-       vector<UserCommands* > tempV;
-       strcpy(temp, terminalCommand.c_str());                                  
-       char * token = strtok(temp, " ;|&#"); 
-       while (token != NULL) {                                                 
-            UserCommands* yeet = new UserCommands(token);
-            tempV.push_back(yeet);
-            token = strtok(NULL, " ;|&#");
-       }
-       for(unsigned i = 0; i < tempV.size(); i++) {     
-             char* commandTemp = new char[tempV.at(i)->returnCommand().size()+1]; 
-             strcpy(commandTemp,tempV.at(i)->returnCommand().c_str());
-             tempV.at(i)->argument()[i] = commandTemp;
-       }
+        for(unsigned i = 0; i < parsedd.size(); i++) {     
+             char* commandTemp = new char[parsedd.at(i)->returnCommand().size()]; 
+             strcpy(commandTemp,parsedd.at(i)->returnCommand().c_str());
+             parsedd.at(i)->argument()[i] = commandTemp;
+        }
     };
     vector<UserCommands*> accessParsed () {
         return parsed;
