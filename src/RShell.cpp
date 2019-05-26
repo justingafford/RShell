@@ -15,7 +15,7 @@ void RShell::parse () {
     char * temp = new char[terminalCommand.length() + 1];             
     strcpy(temp, terminalCommand.c_str());                                  
     
-    char * token = strtok(temp, " ;|&#"); 
+    char * token = strtok(temp, ";|&#"); 
     while (token != NULL) {                                                 
        UserCommands* yeet = new UserCommands(token);
        parsed.push_back(yeet);
