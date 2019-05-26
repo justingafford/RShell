@@ -61,6 +61,10 @@ __waitpid()__
 
 waitpid() waits for proccesses to finish, and thus, we can use it to allow our program to compile multiple commands at once. By setting pid to a specific value, we can tell our program to wait until its compiled all of the commands passed through by the use of connectors before allowing any more user input.
 
+__stat()__
+
+stat() stats the file pointed to by path and fills in buf. Essessentially, stat() returns whether or not a file path exists, enabling the implementation of our test command.
+
 __Primary websites used for Research:__
 
 * [Prototype](http://www.cs.ecu.edu/karl/4630/sum01/example1.html) - used to help build prototype.
