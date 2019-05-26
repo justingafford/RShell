@@ -27,7 +27,7 @@ void RShell::parse () {
     //parse part 2(this populates parsed2 vector, creating a vector of connectors
     unsigned save = -1; //index where we read a comment if you make one.
     unsigned j = 0;
-    if(parsed.size() > 1) {
+    if(parsed.size() > 2) {
     	for (unsigned i = 0; i < terminalCommand.size(); i++) {
 	//cout << "7" << endl;
 		if(terminalCommand.at(i) == ';') {
