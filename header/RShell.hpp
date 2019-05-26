@@ -31,13 +31,13 @@ class RShell {
     bool commentCreated () {
         return createdComment;
     };
-    void createCommands() {
-        for(unsigned i = 0; i < parsedd.size(); i++) {     
-             char* commandTemp = new char[parsedd.at(i)->returnCommand().size()]; 
-             strcpy(commandTemp,parsedd.at(i)->returnCommand().c_str());
-             parsedd.at(i)->argument()[i] = commandTemp;
-        }
-    };
+    //void createCommands() {
+        //for(unsigned i = 0; i < parsedd.size(); i++) {     
+             //char* commandTemp = new char[parsedd.at(i)->returnCommand().size()]; 
+             //strcpy(commandTemp,parsedd.at(i)->returnCommand().c_str());
+             //parsedd.at(i)->argument()[i] = commandTemp;
+        //}
+    //};
     vector<UserCommands*> accessParsed () {
         return parsed;
     };
