@@ -42,10 +42,10 @@ class RShell {
        }
        for(unsigned i = 0; i < tempV.size(); i++) {     
              char* commandTemp = new char[tempV.at(i)->returnCommand().size()+1]; 
-             strcpy(commandTemp,parsedd.at(i)->returnCommand().c_str());
-             parsedd.at(i)->argument()[i] = commandTemp;
+             strcpy(commandTemp,tempV.at(i)->returnCommand().c_str());
+             tempV.at(i)->argument()[i] = commandTemp;
        }
-  };
+    };
     vector<UserCommands*> accessParsed () {
         return parsed;
     };
