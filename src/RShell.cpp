@@ -19,13 +19,8 @@ void RShell::parse () {
     
   while(i < terminalCommand.size()) {
     if(terminalCommand.at(i) != ' '){
-      if(i < terminalCommand.size() - 1) {
-	      if ((terminalCommand.at(i) == '&' && terminalCommand.at(i+1) == '&') || (terminalCommand.at(i) == '|' && terminalCommand.at(i+1) == '|')) {
-	      	i++;
-	      }
-      }
-      else if (terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
-	      
+      if(terminalCommand.at(i) == '&' || terminalCommand.at(i) = '|' terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
+
       }
       else {
 	parsedCMD += terminalCommand.at(i);
