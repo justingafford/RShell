@@ -4,7 +4,7 @@ ADD_SUBDIRECTORY(googletest)
  
 SET(CMAKE_CXX_STANDARD 11)
  
-ADD_EXECUTABLE(RShell
+ADD_EXECUTABLE(rshell
     src/Ampersand.cpp
     src/Pipe.cpp
     src/RShell.cpp
