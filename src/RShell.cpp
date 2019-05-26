@@ -17,10 +17,21 @@ void RShell::parse () {
   bool parseArguments = false;
   UserCommands* currentCMD;
     
-  while(i < terminalCommand.size()){
+  while(i < terminalCommand.size()) {
     if(terminalCommand.at(i) != ' '){
-      parsedCMD += terminalCommand.at(i);
+      if(i < terminalCommand.size() - 1) {
+	      if ((terminalCommand.at(i) == '&' && terminalCommand.at(i+1) == '&') || (terminalCommand.at(i) == '|' && terminalCommand.at(i+1) == '|')) {
+	      	i++;
+	      }
+      }
+      else if (terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
+	      
+      }
+      else {
+	parsedCMD += terminalCommand.at(i);
+      }
       i++;
+       
     }else{ //if there's a space, then that indicates the start of the arguments or something else
       //this assumes no pipes/ampersands/etc., in order for those to work that'd require an if-statement to break off the currentCMD from the next
       //aka, pushing it back to the vector and then starting with a new currentCMD object
@@ -28,7 +39,8 @@ void RShell::parse () {
 	currentCMD = new UserCommands(parsedCMD);
 	currentCMD->addArguments(parsedCMD); //a program always has the argument of itself
 	parseArguments = true; //we now have the program, need to decipher its arguments
-      }else{
+      }
+      else{
 	currentCMD->addArguments(parsedCMD);
       }
       while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()){ //advance past any trailing spaces
