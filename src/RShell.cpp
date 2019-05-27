@@ -12,14 +12,14 @@
 #include <sys/stat.h>
 #include <istream>
 using namespace std;
-cout << "Terminal Command: " << terminalCommand << endl;
+
 void RShell::parse () {
   std::string parsedCMD;
   int i = 0;
   unsigned save = -1; //index where we read a comment if you make one.
   bool parseArguments = false;
   UserCommands* currentCMD;
-    
+  cout << "Terminal Command: " << terminalCommand << endl;  
   while(i < terminalCommand.size()) {
     if(terminalCommand.at(i) != ' '){
         if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
