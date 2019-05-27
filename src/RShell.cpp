@@ -238,13 +238,13 @@ void RShell::program() {
 	    perror("Command Error");
 	    exit(0);
 	  }
-	  while(wait(0) != pid);
-	  parsed.at(i)->DoExecute();
+	  
 	  cout.flush();
 	}
 	else {
-	  commandError = true;
-	  
+	  while(wait(0) != pid);
+	  parsed.at(i)->DoExecute();	
+	  commandError = true; 
 	}
       }
     }
