@@ -30,6 +30,11 @@ class UserCommands: public Base {
   vector<std::string> returnArguments(){
     return arguments;
   };
+  void printArguments () {
+   for(unsigned i = 0; i < arguments.size(); i++) {
+    cout << "Arguments at index " << i <<  " : " <<arguments.at(i) << endl;
+   }
+  };
   char ** argument() {
     return deezArgs;
   };
