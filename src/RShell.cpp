@@ -18,12 +18,15 @@ void RShell::parse () {
   unsigned save = -1; //index where we read a comment if you make one.
   bool parseArguments = false;
   UserCommands* currentCMD;
-    
+
+  std::cout.flush();
+  std::cout << "Terminal command: " << terminalCommand << "\n"; 
+  
   while(i < terminalCommand.size()) {
     if(terminalCommand.at(i) != ' ' && !parseArguments){
       if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
 	parsed.push_back(currentCMD);
-	parseArguments = false;
+
 	if (terminalCommand.at(i) == ';') {
 	  parsed.push_back(new UserCommands(";"));
 	}
@@ -31,27 +34,30 @@ void RShell::parse () {
 	  save = i;
 	  break;
 	}
-	i++;
+	
 	if (i < terminalCommand.size()) {
 	  if(terminalCommand.at(i) == '&') {
 	    parsed.push_back(new UserCommands("&&"));
-	    i++;
 	  }
 	  else if(terminalCommand.at(i) == '|') {
 	    parsed.push_back(new UserCommands("||"));
-	    i++;
 	  }
 	}
+
+	i++;
+	
 	while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()) {
 	  i++;
 	}
+      }else{
+	parsedCMD += terminalCommand.at(i);
+	i++;
       }
-      parsedCMD += terminalCommand.at(i);
-      i++;
        
     }else if(!parseArguments){ //if there's a space, then that indicates the start of the arguments or something else
       //this assumes no pipes/ampersands/etc., in order for those to work that'd require an if-statement to break off the currentCMD from the next
       //aka, pushing it back to the vector and then starting with a new currentCMD object
+      std::cout << "hello2" << "\n";
       currentCMD = new UserCommands(parsedCMD);
       currentCMD->addArguments(parsedCMD); //a program always has the argument of itself
       parseArguments = true; //we now have the program, need to decipher its arguments
@@ -61,14 +67,18 @@ void RShell::parse () {
       }
       parsedCMD.clear(); //empty the string for the next command or argument
     }else if(parseArguments){
-
+      std::cout << "hello" << "\n";
+      
       if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
 	currentCMD->addArguments(parsedCMD);
 	std::cout << parsedCMD << "\n";
+	parsedCMD.clear();
+	i += 2;
 	continue;
       }
       
       parsedCMD += terminalCommand.at(i);
+      i++;
     }
   }
 
