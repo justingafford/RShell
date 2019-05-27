@@ -15,7 +15,7 @@ using namespace std;
 void RShell::parse () {
   std::string parsedCMD;
   int i = 0;
-
+  unsigned save = -1; //index where we read a comment if you make one.
   bool parseArguments = false;
   UserCommands* currentCMD;
     
@@ -92,7 +92,7 @@ void RShell::parse () {
   //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
 	
   //parse part 2(this populates parsed2 vector, creating a vector of connectors
-  unsigned save = -1; //index where we read a comment if you make one.
+  
   unsigned j = 0;
 
   //having a connector implies more than one command
