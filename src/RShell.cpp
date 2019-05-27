@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <istream>
 using namespace std;
 
 void RShell::parse () {
@@ -257,7 +258,7 @@ void RShell::reset() {
 	input.clear();
 	parsed.clear();
 	parsed2.clear();
-	cin.flush();
+	cin.clear();
 	terminalCommand = "";
 	currFunction = "";
 }
