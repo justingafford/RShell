@@ -127,7 +127,7 @@ void RShell::parse () {
     }
   }
   
-  printArguments;
+  printArguments();
   //part 3(creates comments.txt file
   if(save != -1) {
     ofstream ofs;	
