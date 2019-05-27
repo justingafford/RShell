@@ -21,12 +21,32 @@ void RShell::parse () {
     
   while(i < terminalCommand.size()) {
     if(terminalCommand.at(i) != ' '){
-      if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
-
+        if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
+      	    parshed.push_back(currentCMD);
+	    parsedArguments = false;
+	    if (terminalCommand.at(i) == ";") {
+	    	parsed.push_back(new UserCommands(";"));
+	    }
+	    else if (terminalCommand.at(i) == "#") {
+	        break;
+	    }
+	    i++;
+	    if (i < terminalCommand.size() {
+		if(terminalCommand.at(i) == '&') {
+		    parsed.push_back(new UserCommands("&&"));
+		    i++;
+		}
+		else if(terminalCommand.at(i) == '|') {
+		    parsed.push_back(new UserCommands("||"));
+		    i++;
+		}
+      	    }
+	    while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()) {
+		i++;
+	    }
+	}
       }
-      else {
-	parsedCMD += terminalCommand.at(i);
-      }
+      parsedCMD += terminalCommand.at(i);
       i++;
        
     }else{ //if there's a space, then that indicates the start of the arguments or something else
