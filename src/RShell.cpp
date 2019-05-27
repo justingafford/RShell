@@ -209,7 +209,7 @@ void RShell::program() {
       if(parsed.at(i)->ExecuteStatus()) {
 	parsed.at(i)->DoNotExecute();
 	pid_t pid = fork();
-	while(wait(0) != pid);
+	wait(0);
 	//pid_t pid = 0;
 	if(pid < 0) {
 	  perror("Fork() failed.");
