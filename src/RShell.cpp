@@ -143,16 +143,15 @@ void RShell::parse () {
 	save = i;
 	break;
       }
-    }
+    
     else if(parsed.at(i)->returnCommand() != "&&" || parsed.at(i)->returnCommand() != "||" || parsed.at(i)->returnCommand() != ";" ||parsed.at(i)->returnCommand() != "#") {
        dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
        parsed2.push_back(dummy);
     }
+	    
   }
-  UserCommands* nou = new UserCommands();
-  for(unsigned t = 0; t < parsed.size(); t++) {
-    cout << "Arguments at index " << t <<  " : " << parsed.at(t)->returnCommand() << endl;
   }
+  
   //part 3(creates comments.txt file
   if(save != -1) {
     ofstream ofs;	
