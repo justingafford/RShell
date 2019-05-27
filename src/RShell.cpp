@@ -64,6 +64,7 @@ void RShell::parse () {
 
       if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
 	currentCMD->addArguments(parsedCMD);
+	std::cout << parsedCMD << "\n";
 	continue;
       }
       
