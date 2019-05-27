@@ -257,6 +257,7 @@ void RShell::reset() {
 	input.clear();
 	parsed.clear();
 	parsed2.clear();
+	cin.flush();
 	terminalCommand = "";
 	currFunction = "";
 }
