@@ -145,7 +145,7 @@ void RShell::parse () {
       }
     
       else if(parsed.at(i)->returnCommand() != "&&" || parsed.at(i)->returnCommand() != "||" || parsed.at(i)->returnCommand() != ";" ||parsed.at(i)->returnCommand() != "#") {
-         SemiColon* dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
+         Semicolon* dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
          parsed2.push_back(dummy);
       }
 	    
