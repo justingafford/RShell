@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <istream>
 using namespace std;
-
+cout << "Terminal Command: " << terminalCommand << endl;
 void RShell::parse () {
   std::string parsedCMD;
   int i = 0;
