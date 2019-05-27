@@ -25,6 +25,7 @@ int main () {
       xd.parse();
       xd.program();
       xd.reset();
+      xd.setInput("");
     }
 
   }
