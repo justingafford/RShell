@@ -126,8 +126,10 @@ void RShell::parse () {
       }
     }
   }
-  
-  printArguments();
+  UserCommands* nou = new UserCommand();
+  for(unsigned t = 0; t < nou->returnArguments().size(); t++) {
+    cout << "Arguments at index " << t <<  " : " << nou->returnArguments().at(t) << endl;
+  }
   //part 3(creates comments.txt file
   if(save != -1) {
     ofstream ofs;	
