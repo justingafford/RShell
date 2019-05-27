@@ -144,6 +144,10 @@ void RShell::parse () {
 	break;
       }
     }
+    else if(parsed.at(i)->returnCommand() != "&&" || parsed.at(i)->returnCommand() != "||" || parsed.at(i)->returnCommand() != ";" ||parsed.at(i)->returnCommand() != "#") {
+       dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
+       parsed2.push_back(dummy);
+    }
   }
   UserCommands* nou = new UserCommands();
   for(unsigned t = 0; t < parsed.size(); t++) {
@@ -201,8 +205,6 @@ void RShell::program() {
       exit(1);
     }
 	    
-    else if(i < parsed2.size())
-      parsed2.at(i)->evaluate();
     else {
       if(parsed.at(i)->ExecuteStatus()) {
 	parsed.at(i)->DoNotExecute();
@@ -228,7 +230,10 @@ void RShell::program() {
 
 	  //this uses the vector's internal array as the args list,
 	  //which is just a clever way of going from <char*>vector -> char* []
-	  if(execvp(program.c_str(), &realArgs[0]) == -1) {
+	  if(program == "&&" || program == "#" || program == ";" || program == "||") {
+		  parsed2.at(i)->evaluate();
+	  }
+	  else if(execvp(program.c_str(), &realArgs[0]) == -1) {
 	    commandError = true;
 	    perror("Command Error");
 	    exit(0);
