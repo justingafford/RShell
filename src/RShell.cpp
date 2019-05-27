@@ -28,6 +28,7 @@ void RShell::parse () {
 	    	parsed.push_back(new UserCommands(";"));
 	    }
 	    else if (terminalCommand.at(i) == '#') {
+		save = i;
 	        break;
 	    }
 	    i++;
