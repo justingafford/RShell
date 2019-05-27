@@ -219,7 +219,7 @@ void RShell::program() {
 	  vector<string> stringArgs = parsed.at(i)->returnArguments();
 	  vector<char *> realArgs;
 
-	  for(int i = 0; i < stringArgs.size(); i++){
+	  for(int i = 0; i < stringArgs.size(); i++) {
 	    char* temp;
 	    strcpy(temp, stringArgs.at(i).c_str());
 	    realArgs.push_back(temp);
@@ -238,12 +238,13 @@ void RShell::program() {
 	    perror("Command Error");
 	    exit(0);
 	  }
+	  while(wait(0) != pid);
+	  parsed.at(i)->DoExecute();
 	  cout.flush();
 	}
 	else {
 	  commandError = true;
-	  while(wait(0) != pid);
-	  parsed.at(i)->DoExecute();
+	  
 	}
       }
     }
