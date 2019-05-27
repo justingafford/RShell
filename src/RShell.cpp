@@ -126,7 +126,7 @@ void RShell::parse () {
       }
     }
   }
-  UserCommands* nou = new UserCommand();
+  UserCommands* nou = new UserCommands();
   for(unsigned t = 0; t < nou->returnArguments().size(); t++) {
     cout << "Arguments at index " << t <<  " : " << nou->returnArguments().at(t) << endl;
   }
