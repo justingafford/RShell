@@ -10,7 +10,6 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <istream>
 using namespace std;
 
 void RShell::parse () {
@@ -19,52 +18,56 @@ void RShell::parse () {
   unsigned save = -1; //index where we read a comment if you make one.
   bool parseArguments = false;
   UserCommands* currentCMD;
-  cout << "Terminal Command: " << terminalCommand << endl;  
+    
   while(i < terminalCommand.size()) {
-    if(terminalCommand.at(i) != ' '){
-        if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
-      	    parsed.push_back(currentCMD);
-	    parseArguments = false;
-	    if (terminalCommand.at(i) == ';') {
-	    	parsed.push_back(new UserCommands(";"));
-	    }
-	    else if (terminalCommand.at(i) == '#') {
-		save = i;
-	        break;
-	    }
-	    i++;
-	    if (i < terminalCommand.size()) {
-		if(terminalCommand.at(i) == '&') {
-		    parsed.push_back(new UserCommands("&&"));
-		    i++;
-		}
-		else if(terminalCommand.at(i) == '|') {
-		    parsed.push_back(new UserCommands("||"));
-		    i++;
-		}
-      	    }
-	    while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()) {
-		i++;
-	    }
+    if(terminalCommand.at(i) != ' ' && !parseArguments){
+      if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
+	parsed.push_back(currentCMD);
+	parseArguments = false;
+	if (terminalCommand.at(i) == ';') {
+	  parsed.push_back(new UserCommands(";"));
 	}
+	else if (terminalCommand.at(i) == '#') {
+	  save = i;
+	  break;
+	}
+	i++;
+	if (i < terminalCommand.size()) {
+	  if(terminalCommand.at(i) == '&') {
+	    parsed.push_back(new UserCommands("&&"));
+	    i++;
+	  }
+	  else if(terminalCommand.at(i) == '|') {
+	    parsed.push_back(new UserCommands("||"));
+	    i++;
+	  }
+	}
+	while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()) {
+	  i++;
+	}
+      }
       parsedCMD += terminalCommand.at(i);
       i++;
        
-    }else{ //if there's a space, then that indicates the start of the arguments or something else
+    }else if(!parseArguments){ //if there's a space, then that indicates the start of the arguments or something else
       //this assumes no pipes/ampersands/etc., in order for those to work that'd require an if-statement to break off the currentCMD from the next
       //aka, pushing it back to the vector and then starting with a new currentCMD object
-      if(!parseArguments){
-	currentCMD = new UserCommands(parsedCMD);
-	currentCMD->addArguments(parsedCMD); //a program always has the argument of itself
-	parseArguments = true; //we now have the program, need to decipher its arguments
-      }
-      else{
-	currentCMD->addArguments(parsedCMD);
-      }
+      currentCMD = new UserCommands(parsedCMD);
+      currentCMD->addArguments(parsedCMD); //a program always has the argument of itself
+      parseArguments = true; //we now have the program, need to decipher its arguments
+      
       while(terminalCommand.at(i) == ' ' && i < terminalCommand.size()){ //advance past any trailing spaces
 	i++;
       }
       parsedCMD.clear(); //empty the string for the next command or argument
+    }else if(parseArguments){
+
+      if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
+	currentCMD->addArguments(parsedCMD);
+	continue;
+      }
+      
+      parsedCMD += terminalCommand.at(i);
     }
   }
 
@@ -258,7 +261,6 @@ void RShell::reset() {
 	input.clear();
 	parsed.clear();
 	parsed2.clear();
-	cin.clear();
 	terminalCommand = "";
 	currFunction = "";
 }
