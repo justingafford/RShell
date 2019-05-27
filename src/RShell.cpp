@@ -144,12 +144,12 @@ void RShell::parse () {
 	break;
       }
     
-    else if(parsed.at(i)->returnCommand() != "&&" || parsed.at(i)->returnCommand() != "||" || parsed.at(i)->returnCommand() != ";" ||parsed.at(i)->returnCommand() != "#") {
-       dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
-       parsed2.push_back(dummy);
-    }
+      else if(parsed.at(i)->returnCommand() != "&&" || parsed.at(i)->returnCommand() != "||" || parsed.at(i)->returnCommand() != ";" ||parsed.at(i)->returnCommand() != "#") {
+         SemiColon* dummy = new Semicolon(); // never should execute, just makes sure that parsed2.size() == parsed.size(), for future coding
+         parsed2.push_back(dummy);
+      }
 	    
-  }
+    }
   }
   
   //part 3(creates comments.txt file
