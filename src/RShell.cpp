@@ -197,6 +197,7 @@ void RShell::setInput(string inp) {
 
 bool commandError = false;
 //inverted boo
+int status;
 void RShell::program() {
   //cout << "$";
   for (unsigned i = 0; i < parsed.size(); i++) {
@@ -242,7 +243,7 @@ void RShell::program() {
 	  cout.flush();
 	}
 	else {
-	  while(wait(0) != pid);
+	  waitpid(pid, &status,0);
 	  parsed.at(i)->DoExecute();	
 	  commandError = true; 
 	}
