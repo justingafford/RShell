@@ -238,7 +238,6 @@ void RShell::program() {
 	    commandError = true;
             parsed.at(i)->DoNotExecute();	
 	    perror("Command Error");
-	    exit(0);
 	  }
 	  
 	  cout.flush();
