@@ -236,6 +236,7 @@ void RShell::program() {
 	  }
 	  else if(execvp(program.c_str(), &realArgs[0]) == -1) {
 	    commandError = true;
+            parsed.at(i)->DoNotExecute();	
 	    perror("Command Error");
 	    exit(0);
 	  }
