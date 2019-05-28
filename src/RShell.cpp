@@ -57,7 +57,6 @@ void RShell::parse () {
     }else if(!parseArguments){ //if there's a space, then that indicates the start of the arguments or something else
       //this assumes no pipes/ampersands/etc., in order for those to work that'd require an if-statement to break off the currentCMD from the next
       //aka, pushing it back to the vector and then starting with a new currentCMD object
-      std::cout << "hello2" << "\n";
       currentCMD = new UserCommands(parsedCMD);
       currentCMD->addArguments(parsedCMD); //a program always has the argument of itself
       parseArguments = true; //we now have the program, need to decipher its arguments
@@ -67,7 +66,6 @@ void RShell::parse () {
       }
       parsedCMD.clear(); //empty the string for the next command or argument
     }else if(parseArguments){
-      std::cout << "hello" << "\n";
       
       if(terminalCommand.at(i) == '&' || terminalCommand.at(i) == '|' || terminalCommand.at(i) == ';' || terminalCommand.at(i) == '#') {
 	currentCMD->addArguments(parsedCMD);
