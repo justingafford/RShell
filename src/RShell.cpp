@@ -91,7 +91,7 @@ void RShell::parse () {
   //cout << "This is the size of vector: " << parsed.size() << endl;
   //cout << "Parsed at 0: " <<  parsed.at(0)->returnCommand() << endl;
 	
-  //parse part 2(this populates parsed2 vector, creating a vector of connectors
+  //parse part 2 (this populates parsed2 vector, creating a vector of connectors)
   
   unsigned j = 0;
 
