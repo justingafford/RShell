@@ -17,7 +17,7 @@ As specified by the Assignment 2&3 manuals, we must build a program in the follo
 
 ### UML Diagram
 
-![alt text](https://github.com/cs100/spring-2019-assignment-doesn-t-matter/blob/master/images/DIAGRAM_2.0.png)
+![alt text](https://github.com/justingafford/RShell/blob/master/images/DIAGRAM_2.0.png)
 
 ### Class Descriptions
 __rshell__
